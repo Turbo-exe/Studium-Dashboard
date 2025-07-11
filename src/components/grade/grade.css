@@ -1,0 +1,16 @@
+
+#gradeWrapper {
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    justify-content : center;
+    width           : 100%;
+    height          : 100%;
+
+    #gradeValue {
+        font-size : var(--font-size-huge);
+        margin    : 0;
+
+        font-weight: 700;
+    }
+}
