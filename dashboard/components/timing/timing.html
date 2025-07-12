@@ -1,0 +1,53 @@
+{% load static %}
+
+{% component "box" box_id="timing" %}
+    {% fill "header" %}
+        <h3>Your progress.</h3>
+    {% endfill %}
+
+    {% fill "content" %}
+        <div id="outerWrapper">
+            <div id="timingWrapper">
+
+                <!-- Motivate the user depending on the difference between number of to-be-finished courses
+                (finishedExamsPlan) and the actual number of finished courses (finishedExamsActual) -->
+                {% if finishedExamsPlan <= finishedExamsActual %}
+                    <p class="timingMotivation">Great! You are on schedule for your time model.</p>
+                {% else %}
+                    <p class="timingMotivation">We believe in you. You can do it!</p>
+                {% endif %}
+
+                <div id="timingInnerWrapper">
+                    <div class="finishedExamsWrapper">
+                        <h3 class="label">Ist</h3>
+                        <h1 class="highlight">{{ finishedExamsActual }}</h1>
+                    </div>
+
+                    <svg id="spacer" viewBox="0 0 350 350" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 20 350 L 350 -20"></path>
+                    </svg>
+                    <div class="finishedExamsWrapper">
+                        <h3 class="label">Plan</h3>
+                        <h1 class="highlight">{{ finishedExamsPlan }}</h1>
+                    </div>
+
+                </div>
+
+                <p>Time model: {{ timeModel }}</p>
+
+            </div>
+
+            <div id="coursesOverviewWrapper">
+                <p>Completed courses</p>
+                <h3>{{ finishedCourses }}</h3>
+                <p>Active courses</p>
+                <h3>{{ activeCourses }}</h3>
+                <p>Future courses</p>
+                <h3>{{ futureCourses }}</h3>
+                <p>Acknowledged courses</p>
+                <h3>{{ acknowledgedCourses }}</h3>
+            </div>
+        </div>
+
+    {% endfill %}
+{% endcomponent %}
