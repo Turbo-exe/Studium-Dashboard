@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Studium Dashboard{% endblock %}</title>
+
+    <!-- Defining a version for the stylesheet via `?v=` helps to avoid caching of styling in browsers -->
+    <link href="{% static 'global.css' %}?v={{ version }}" rel="stylesheet" type="text/css">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+    <img src="{% static "logo.png" %}" alt="Studium Dashboard Logo" id="logo">
+    <h1>Studium Dashboard</h1>
+</header>
+
+
+<!-- Sections (boxes) -->
+<div id="sections">
+    {% component "greeting" %}
+    {% endcomponent %}
+    {% component "timing" %}
+    {% endcomponent %}
+    {% component "courses" id="courses" %}
+    {% endcomponent %}
+    {% component "quicklinks" id="quicklinks" %}
+    {% endcomponent %}
+    {% component "grade" id="grade " %}
+    {% endcomponent %}
+</div>
+
+<p id="copyright">IU Logo © 2025 Copyright © IU Internationale Hochschule</p>
+
+</body>
+</html>

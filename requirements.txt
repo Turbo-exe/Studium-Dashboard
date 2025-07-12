@@ -1,0 +1,5 @@
+Django~=5.2.1
+django-components~=0.139.1
+pytz~=2025.2
+django-tables2~=2.7.0
+django-filter~=23.5

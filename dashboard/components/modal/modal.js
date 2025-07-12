@@ -46,7 +46,6 @@ function showModal(modalId) {
     // Show modal (via classes)
     modal.classList.add('show');
     backdrop.classList.add('show');
-    modal.setAttribute('aria-hidden', 'false');
 
     // Prevent scrolling in the outer most element 'body'
     document.body.style.overflow = 'hidden';
@@ -72,7 +71,6 @@ function hideModal(modalId) {
     // Hide modal (via classes)
     modal.classList.remove('show');
     backdrop.classList.remove('show');
-    modal.setAttribute('aria-hidden', 'true');
 
     // Restore body scrolling
     document.body.style.overflow = '';

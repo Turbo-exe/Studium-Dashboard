@@ -1,0 +1,10 @@
+# Jetbrains ide files
+.idea
+.idea/*
+
+# Python runtime files
+__pycache__
+.venv
+
+# Django database
+db.sqlite3
