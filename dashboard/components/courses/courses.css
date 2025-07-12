@@ -1,0 +1,125 @@
+.course-table-container {
+    display        : flex;
+    flex-direction : column;
+    width          : 100%;
+    margin-bottom  : var(--space-5);
+}
+
+#filter-container {
+
+    display   : flex;
+    min-width : 820px;
+    margin    : var(--space-2) 0;
+
+    #fields {
+        display               : grid;
+        margin-top            : var(--space-2);
+        grid-template-columns : 1fr 4fr 1fr 1.5fr 4fr 1fr;
+        gap                   : var(--space-2);
+    }
+
+    #controls {
+        display        : flex;
+        align-self     : flex-end;
+        flex-direction : row;
+        height         : 37px; /* Height of input fields*/
+        margin-left    : var(--space-2);
+        gap            : var(--space-2);
+    }
+}
+
+/* Modal */
+#edit-course-form {
+    display        : flex;
+    flex-direction : column;
+    gap            : var(--space-4);
+}
+
+/* Table styles */
+.table-container {
+    min-width                  : 820px;
+    height                     : 100%;
+    -webkit-overflow-scrolling : touch;
+}
+
+.courses-table {
+    width           : 100%;
+    border-collapse : collapse;
+}
+
+.courses-table th,
+.courses-table td {
+    padding       : 0.75rem;
+    text-align    : left;
+    border-bottom : 1px solid #eee;
+}
+
+.courses-table th {
+    font-weight      : 600;
+    position         : sticky;
+    z-index          : 1;
+    top              : 0;
+    background-color : #f8f9fa;
+}
+
+.courses-table tr:hover {
+    background-color : #f8f9fa;
+}
+
+/* Action buttons */
+.action-buttons {
+    display         : flex;
+    justify-content : flex-start;
+    gap             : 0.5rem;
+}
+
+.action-buttons .material-icons {
+    font-size : 1.2rem;
+}
+
+/* Pagination */
+.pagination {
+    display         : flex;
+    justify-content : center;
+    margin-top      : 1rem;
+    padding         : 0;
+    list-style      : none;
+}
+
+.pagination li {
+    margin : 0 0.25rem;
+}
+
+.pagination a {
+    display         : inline-block;
+    padding         : 0.5rem 0.75rem;
+    text-decoration : none;
+    color           : #4a90e2;
+    border          : 1px solid #eee;
+    border-radius   : 0.25rem;
+}
+
+.pagination a:hover {
+    background-color : #f8f9fa;
+}
+
+.pagination .active a {
+    color            : white;
+    border-color     : #4a90e2;
+    background-color : #4a90e2;
+}
+
+/* Footer content */
+.footer-content {
+    display         : flex;
+    align-items     : center;
+    justify-content : flex-start;
+}
+
+/* Responsive design */
+@media (max-width : 768px) {
+    .courses-table th,
+    .courses-table td {
+        white-space : nowrap;
+    }
+}

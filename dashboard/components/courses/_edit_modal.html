@@ -1,0 +1,40 @@
+{% load static %}
+
+{% component "modal" modal_id="edit-course-modal" modal_title="Edit Enrollment" modal_size="large" %}
+    {% fill "body" %}
+        <form id="edit-course-form" method="post" action="">
+            {% csrf_token %}
+            <input type="hidden" name="course_id" id="edit-course-id">
+
+            <div class="form-field">
+                <label class="form-label" for="id_score">{{ form.score.label }}</label>
+                <span class="form-input">{{ form.score }}</span>
+                {% if form.score.help_text %}
+                    <small class="form-hint">{{ form.score.help_text }}</small>
+                {% endif %}
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="id_status">{{ form.status.label }}</label>
+                <span class="form-input">{{ form.status }}</span>
+                {% if form.status.help_text %}
+                    <small class="form-hint">{{ form.status.help_text }}</small>
+                {% endif %}
+            </div>
+
+            <div class="form-errors" style="display: none;">
+                <h3>Invalid input!</h3>
+                <div class="alert alert-danger">
+                    <ul id="edit-form-errors"></ul>
+                </div>
+            </div>
+        </form>
+    {% endfill %}
+
+    {% fill "footer" %}
+        <button type="button" class="button-secondary" data-modal-id="edit-course-modal"
+                onclick="window.modalFunctions.hideModal('edit-course-modal')">Cancel
+        </button>
+        <button type="button" class="button-primary" id="save-course-btn">Save changes</button>
+    {% endfill %}
+{% endcomponent %}

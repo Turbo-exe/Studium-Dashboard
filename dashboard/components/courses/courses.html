@@ -1,0 +1,53 @@
+{% load static %}
+{% load django_tables2 %}
+
+{% include "courses/_edit_modal.html" with form=form %}
+
+{% component "box" box_id="courses" %}
+    {% fill "header" %}
+        <h3>Your courses.</h3>
+    {% endfill %}
+
+    {% fill "content" %}
+        <div class="course-table-container">
+            <!-- Filters -->
+            <form id="filter-container" method="post">
+                {% csrf_token %}
+                <div id="fields">
+                    {% for field in filter.form %}
+                        <div class="form-field">
+                            <label class="form-label">{{ field.label_tag }}</label>
+                            <span class="form-input">{{ field }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div id="controls">
+                    <button type="submit" class="button-primary" title="Apply filters">Filter</button>
+                </div>
+            </form>
+
+            <!-- Table -->
+            <div class="table-container">
+                {% render_table table %}
+            </div>
+
+            {% block table.page.previous %}
+                <span>Previous Page</span>
+            {% endblock %}
+
+            {% block table.page.next %}
+                <span>Next Page</span>
+            {% endblock %}
+
+        </div>
+    {% endfill %}
+
+    {% fill "footer" %}
+        <div class="footer-content">
+            <div class="table-info">
+                <small>Showing {{ table.page.start_index }} to {{ table.page.end_index }}
+                    of {{ table.page.paginator.count }} courses</small>
+            </div>
+        </div>
+    {% endfill %}
+{% endcomponent %}
