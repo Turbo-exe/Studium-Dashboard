@@ -1,0 +1,50 @@
+.box {
+
+    display             : grid;
+    overflow            : hidden;
+    min-width           : 100px;
+    padding             : var(--space-4);
+    border-radius       : var(--radius-xl);
+    background          : var(--color-bg-primary);
+    -moz-box-shadow     : 0 0 var(--space-2) 0 var(--color-bg-overlay);
+    -webkit-box-shadow  : 0 0 var(--space-2) 0 var(--color-bg-overlay);
+    box-shadow          : 0 0 var(--space-2) 0 var(--color-bg-overlay);
+    grid-template-areas :
+        "header"
+        "content"
+        "footer";
+
+    grid-template-rows  : min-content 1fr min-content;
+
+    .box-header {
+        display       : flex;
+        overflow      : hidden;
+        width         : 100%;
+        border-bottom : 1px solid var(--color-neutral-1000);
+        grid-area     : header;
+
+        h3 {
+            margin : var(--space-2) 0 0;
+        }
+    }
+
+    .box-content {
+        display   : flex;
+        overflow  : auto;
+        width     : 100%;
+        grid-area : content;
+    }
+
+    .box-footer {
+        overflow  : hidden;
+        width     : 100%;
+        grid-area : footer;
+    }
+}
+
+
+@media screen and (max-width : 1024px) {
+    .box, .box-content {
+        overflow : visible;
+    }
+}
