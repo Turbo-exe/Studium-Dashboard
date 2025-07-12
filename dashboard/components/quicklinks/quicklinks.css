@@ -1,0 +1,107 @@
+
+#quicklinksWrapper {
+    overflow : hidden;
+    width    : 100%;
+}
+
+:root {
+    --quicklinks-height : 150px;
+    --quicklinks-width  : 150px;
+}
+
+#quicklinksWrapperInner {
+    position   : relative;
+    display    : flex;
+    overflow   : visible;
+    max-height : 150px;
+    margin-top : var(--space-4);
+    transition : transform 0.3s ease;
+    transform  : translateX(0);
+    gap        : var(--space-2);
+
+    .quicklink-container {
+        position   : relative;
+        min-width  : var(--quicklinks-width);
+        max-width  : var(--quicklinks-width);
+        min-height : var(--quicklinks-height);
+        max-height : var(--quicklinks-height);
+    }
+
+    .delete-quicklink-btn {
+        position      : absolute;
+        top           : var(--space-2);
+        right         : var(--space-2);
+        padding       : var(--space-1);
+        font-size     : var(--font-size-md);
+        z-index       : 10;
+        opacity       : 0;
+        transition    : opacity 0.2s ease;
+    }
+
+    .quicklink-container:hover .delete-quicklink-btn {
+        opacity : 1;
+    }
+
+    .quicklink {
+        display               : grid;
+        align-items           : center;
+        justify-content       : center;
+        min-width             : var(--quicklinks-width);
+        max-width             : var(--quicklinks-width);
+        min-height            : var(--quicklinks-height);
+        max-height            : var(--quicklinks-height);
+
+        padding               : var(--space-2);
+        cursor                : pointer;
+        text-decoration       : none;
+
+        color                 : var(--color-text-primary);
+        border-radius         : var(--radius-xl);
+
+        background            : var(--color-primary-200);
+        grid-template-columns : 1fr;
+        grid-template-rows    : calc(var(--quicklinks-height) * 0.66667) 1fr;
+
+        .quicklinkIcon {
+            font-size    : var(--font-size-5xl);
+            justify-self : center;
+        }
+
+        .quicklinkText {
+            margin     : 0;
+            text-align : center;
+        }
+    }
+
+    #add-quicklink-btn {
+        border     : var(--space-1) solid var(--color-primary-200);
+        background : var(--color-bg-primary);
+    }
+
+}
+
+.pagination-dots {
+    position        : relative;
+    bottom          : 0;
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    width           : 100%;
+    margin-top      : var(--space-2);
+    gap             : var(--space-2);
+}
+
+.pagination-dot {
+    width            : var(--space-3);
+    height           : var(--space-3);
+    cursor           : pointer;
+    transition       : background-color 0.3s ease;
+    border-radius    : var(--radius-full);
+    background-color : var(--color-primary-200);
+}
+
+.pagination-dot.active {
+    width            : 14px;
+    height           : 14px;
+    background-color : var(--color-primary-500);
+}

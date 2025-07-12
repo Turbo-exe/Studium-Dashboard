@@ -1,0 +1,35 @@
+{% load static %}
+
+{% component "box" box_id="quicklinks" %}
+    {% fill "header" %}
+        <h3>Quicklinks.</h3>
+    {% endfill %}
+
+    {% fill "content" %}
+
+        <div id="quicklinksWrapper">
+            <div id="quicklinksWrapperInner">
+                {% for quicklink in quicklinks %}
+                    <div class="quicklink-container">
+                        <a class="quicklink" href="{{ quicklink.url }}">
+                            <span class="quicklinkIcon material-symbols-outlined">&#x{{ quicklink.materialIconRef }};</span>
+                            <p class="quicklinkText">{{ quicklink.text }}</p>
+                        </a>
+                        <button type="button" class="delete-quicklink-btn button-secondary material-symbols-outlined" data-quicklink-id="{{ quicklink.id }}" onclick="openDeleteQuicklinkModal({{ quicklink.id }})">Delete</button>
+                    </div>
+                {% endfor %}
+                <div class="quicklink-container">
+                    <a class="quicklink" id="add-quicklink-btn" onclick="window.modalFunctions.showModal('add-quicklink-modal')">
+                        <span class="quicklinkIcon material-symbols-outlined">add_circle_outline</span>
+                        <p class="quicklinkText">New link</p>
+                    </a>
+                </div>
+            </div>
+            <div id="quicklinksPagination" class="pagination-dots"></div>
+        </div>
+
+        {% include "quicklinks/_add_modal.html" %}
+        {% include "quicklinks/_delete_modal.html" %}
+
+    {% endfill %}
+{% endcomponent %}
