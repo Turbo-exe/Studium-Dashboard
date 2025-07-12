@@ -1,0 +1,93 @@
+.modal-backdrop {
+    position         : fixed;
+    z-index          : 1000;
+    top              : 0;
+    left             : 0;
+    display          : none;
+    width            : 100%;
+    height           : 100%;
+    background-color : var(--color-bg-overlay);
+}
+
+.modal {
+    position         : fixed;
+    z-index          : 1001;
+    top              : 50%;
+    left             : 50%;
+    display          : none;
+    overflow         : hidden;
+    max-height       : 90vh;
+    transform        : translate(-50%, -50%);
+    border-radius    : var(--radius-xl);
+    background-color : var(--color-bg-primary);
+    box-shadow       : 0 var(--radius-md) var(--radius-md) var(--color-bg-overlay);
+}
+
+
+.modal-header {
+    display         : flex;
+    align-items     : center;
+    justify-content : space-between;
+    padding         : var(--space-4);
+}
+
+.modal-title {
+    font-size : var(--font-size-lg);
+    margin    : 0;
+}
+
+.close-modal {
+    font-size  : var(--font-size-lg);
+    padding    : 0;
+    cursor     : pointer;
+    color      : var(--color-text-primary);
+    border     : none;
+    background : none;
+}
+
+
+.modal-content {
+    display        : flex;
+    overflow       : hidden;
+    width          : 100%;
+    flex-direction : column;
+    max-height     : 90vh;
+    overflow-y     : auto;
+    padding        : var(--space-4);
+}
+
+
+.modal-footer {
+    display         : flex;
+    justify-content : flex-end;
+    padding         : var(--space-4);
+    gap             : var(--space-2);
+}
+
+/* Styling to show and hide modals */
+.modal.show,
+.modal-backdrop.show {
+    display : block;
+}
+
+/* Modal sizes */
+.modal-small {
+    width : 300px;
+}
+
+.modal-medium {
+    width : 500px;
+}
+
+.modal-large {
+    width : 800px;
+}
+
+
+@media screen and (max-width : 768px) {
+    .modal-small,
+    .modal-medium,
+    .modal-large {
+        width : 90%;
+    }
+}
