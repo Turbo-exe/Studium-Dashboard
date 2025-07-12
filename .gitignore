@@ -1,6 +1,7 @@
 # Jetbrains ide files
 .idea
 .idea/*
+/.idea/
 
 # Python runtime files
 __pycache__
