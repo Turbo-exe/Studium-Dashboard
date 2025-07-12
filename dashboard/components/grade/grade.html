@@ -1,15 +1,14 @@
-{# components/grade/grade.html #}
 {% load static %}
 
 {% component "box" box_id="grade" %}
     {% fill "header" %}
-        <h3>Dein Notendurchschnitt.</h3>
+        <h3>Your grade.</h3>
     {% endfill %}
 
     {% fill "content" %}
         <div id="gradeWrapper">
             <p id="gradeValue">{{ grade }}</p>
-            <p id="exams">Basierend auf {{ exams }} Prüfungen</p>
+            <p id="exams">Based on {{ exams }} exams.</p>
         </div>
     {% endfill %}
 
