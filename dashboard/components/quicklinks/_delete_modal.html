@@ -8,7 +8,7 @@
             <input type="hidden" name="quicklink_id" id="delete-quicklink-id">
 
             <p>{% translate "Are you sure you want to delete this quicklink?" %}</p>
-            <p><strong>{% translate "This action cannot be undone." %}</strong> {% translate "The quicklink will be permanently removed from your dashboard." %}</p>
+            <p><strong>{% translate "This action cannot be undone!" %}</strong> {% translate "The quicklink will be permanently removed from your dashboard." %}</p>
 
             <div class="form-errors" style="display: none;">
                 <h3>{% translate "Error!" %}</h3>
@@ -23,6 +23,6 @@
         <button type="button" class="button-secondary" data-modal-id="delete-quicklink-modal"
                 onclick="window.modalFunctions.hideModal('delete-quicklink-modal')">{% translate "Cancel" %}
         </button>
-        <button type="button" class="button-danger" id="confirm-delete-btn">{% translate "Delete" %}</button>
+        <button type="button" class="button-primary" id="confirm-delete-btn">{% translate "Delete" %}</button>
     {% endfill %}
 {% endcomponent %}

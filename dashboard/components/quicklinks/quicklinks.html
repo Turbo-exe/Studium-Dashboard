@@ -16,7 +16,7 @@
                             <span class="quicklinkIcon material-symbols-outlined">&#x{{ quicklink.materialIconRef }};</span>
                             <p class="quicklinkText">{{ quicklink.text }}</p>
                         </a>
-                        <button type="button" class="delete-quicklink-btn button-secondary material-symbols-outlined" data-quicklink-id="{{ quicklink.id }}" onclick="openDeleteQuicklinkModal({{ quicklink.id }})">{% translate "Delete" %}</button>
+                        <button type="button" class="delete-quicklink-btn button-secondary material-symbols-outlined" data-quicklink-id="{{ quicklink.id }}" onclick="openDeleteQuicklinkModal({{ quicklink.id }})">Delete</button>
                     </div>
                 {% endfor %}
                 <div class="quicklink-container">
