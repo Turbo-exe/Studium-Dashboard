@@ -20,16 +20,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\dashboard\components\courses\_action_buttons.html:8
-#, fuzzy
-#| msgid "enrollment"
 msgid "Edit enrollment"
-msgstr "Einschreibung"
+msgstr "Kurs bearbeiten"
 
 #: .\dashboard\components\courses\_edit_modal.html:4
-#, fuzzy
-#| msgid "enrollment"
 msgid "Edit Enrollment"
-msgstr "Einschreibung"
+msgstr "Kurs bearbeiten"
 
 #: .\dashboard\components\courses\_edit_modal.html:27
 #: .\dashboard\components\quicklinks\_add_modal.html:34
@@ -50,7 +46,7 @@ msgstr "Speichern"
 #, fuzzy
 #| msgid "courses"
 msgid "Your courses."
-msgstr "Kurse"
+msgstr "Deine Kurse"
 
 #: .\dashboard\components\courses\courses.html:26
 msgid "Apply filters"
@@ -137,10 +133,8 @@ msgstr "Hey %(student_name)s 👋"
 
 #: .\dashboard\components\quicklinks\_add_modal.html:4
 #: .\dashboard\components\quicklinks\_add_modal.html:46
-#, fuzzy
-#| msgid "Quicklink"
 msgid "Add Quicklink"
-msgstr "Quicklink"
+msgstr "Quicklink hinzufügen"
 
 #: .\dashboard\components\quicklinks\_add_modal.html:10
 msgid "Text"
@@ -197,8 +191,6 @@ msgid "Delete"
 msgstr "Löschen"
 
 #: .\dashboard\components\quicklinks\quicklinks.html:6
-#, fuzzy
-#| msgid "Quicklinks"
 msgid "Quicklinks."
 msgstr "Quicklinks"
 
