@@ -66,7 +66,7 @@ msgstr ""
 #: .\dashboard\components\courses\filters.py:23
 #: .\dashboard\components\courses\table.py:23
 msgid "Shortcode"
-msgstr "Kurzcode"
+msgstr "Kürzel"
 
 #: .\dashboard\components\courses\filters.py:29
 #: .\dashboard\components\courses\table.py:28
