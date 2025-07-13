@@ -43,8 +43,6 @@ msgid "Save changes"
 msgstr "Speichern"
 
 #: .\dashboard\components\courses\courses.html:9
-#, fuzzy
-#| msgid "courses"
 msgid "Your courses."
 msgstr "Deine Kurse"
 
@@ -164,8 +162,6 @@ msgid "The icon for the quicklink"
 msgstr "Das Icon des Quicklinks"
 
 #: .\dashboard\components\quicklinks\_delete_modal.html:4
-#, fuzzy
-#| msgid "Quicklink"
 msgid "Delete Quicklink"
 msgstr "Quicklink"
 
