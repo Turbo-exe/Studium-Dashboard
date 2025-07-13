@@ -1,11 +1,12 @@
 {% load static %}
 {% load django_tables2 %}
+{% load i18n %}
 
 {% include "courses/_edit_modal.html" with form=form %}
 
 {% component "box" box_id="courses" %}
     {% fill "header" %}
-        <h3>Your courses.</h3>
+        <h3>{% translate "Your courses." %}</h3>
     {% endfill %}
 
     {% fill "content" %}
@@ -22,7 +23,7 @@
                     {% endfor %}
                 </div>
                 <div id="controls">
-                    <button type="submit" class="button-primary" title="Apply filters">Filter</button>
+                    <button type="submit" class="button-primary" title="{% translate "Apply filters" %}">{% translate "Filter" %}</button>
                 </div>
             </form>
 
@@ -31,22 +32,14 @@
                 {% render_table table %}
             </div>
 
-            {% block table.page.previous %}
-                <span>Previous Page</span>
-            {% endblock %}
-
-            {% block table.page.next %}
-                <span>Next Page</span>
-            {% endblock %}
-
         </div>
     {% endfill %}
 
     {% fill "footer" %}
         <div class="footer-content">
             <div class="table-info">
-                <small>Showing {{ table.page.start_index }} to {{ table.page.end_index }}
-                    of {{ table.page.paginator.count }} courses</small>
+                <small>{% blocktranslate with start=table.page.start_index end=table.page.end_index total=table.page.paginator.count %}Showing {{ start }} to {{ end }}
+                    of {{ total }} courses{% endblocktranslate %}</small>
             </div>
         </div>
     {% endfill %}

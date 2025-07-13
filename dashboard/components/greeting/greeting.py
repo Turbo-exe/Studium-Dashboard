@@ -2,6 +2,7 @@ import locale
 from datetime import datetime
 
 import pytz
+from django.utils.translation import get_language
 from django_components import Component, register
 
 from dashboard import services, settings
@@ -24,7 +25,9 @@ class Timing(Component):
     @staticmethod
     def _get_date_string():
         """Builds a date string in the format (in german) → 'Mittwoch, 26.03.2025'."""
-        locale.setlocale(category=locale.LC_TIME, locale=f"{settings.LANGUAGE_CODE}.UTF-8")
+        current_language = get_language()
+
+        locale.setlocale(category=locale.LC_TIME, locale=f"{current_language}.UTF-8")
         berlin_tz = pytz.timezone(settings.TIME_ZONE)
         now = datetime.now(tz=berlin_tz)
         return now.strftime("%A, %d. %B %Y")

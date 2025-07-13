@@ -1,14 +1,15 @@
 {% load static %}
+{% load i18n %}
 
 {% component "box" box_id="grade" %}
     {% fill "header" %}
-        <h3>Your grade.</h3>
+        <h3>{% translate "Your grade." %}</h3>
     {% endfill %}
 
     {% fill "content" %}
         <div id="gradeWrapper">
             <p id="gradeValue">{{ grade }}</p>
-            <p id="exams">Based on {{ exams }} exams.</p>
+            <p id="exams">{% blocktranslate %}Based on {{ exams }} exams.{% endblocktranslate %}</p>
         </div>
     {% endfill %}
 

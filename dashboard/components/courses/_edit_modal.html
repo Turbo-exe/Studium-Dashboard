@@ -1,6 +1,7 @@
 {% load static %}
+{% load i18n %}
 
-{% component "modal" modal_id="edit-course-modal" modal_title="Edit Enrollment" modal_size="large" %}
+{% component "modal" modal_id="edit-course-modal" modal_title=_("Edit Enrollment") modal_size="large" %}
     {% fill "body" %}
         <form id="edit-course-form" method="post" action="">
             {% csrf_token %}
@@ -23,7 +24,7 @@
             </div>
 
             <div class="form-errors" style="display: none;">
-                <h3>Invalid input!</h3>
+                <h3>{% translate "Invalid input!" %}</h3>
                 <div class="alert alert-danger">
                     <ul id="edit-form-errors"></ul>
                 </div>
@@ -33,8 +34,8 @@
 
     {% fill "footer" %}
         <button type="button" class="button-secondary" data-modal-id="edit-course-modal"
-                onclick="window.modalFunctions.hideModal('edit-course-modal')">Cancel
+                onclick="window.modalFunctions.hideModal('edit-course-modal')">{% translate "Cancel" %}
         </button>
-        <button type="button" class="button-primary" id="save-course-btn">Save changes</button>
+        <button type="button" class="button-primary" id="save-course-btn">{% translate "Save changes" %}</button>
     {% endfill %}
 {% endcomponent %}

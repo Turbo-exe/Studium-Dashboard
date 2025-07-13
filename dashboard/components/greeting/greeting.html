@@ -1,6 +1,7 @@
 {% load static %}
+{% load i18n %}
 
 <div id="greeting-wrapper">
-    <h1 id="greeting">Hey {{ student_name }} 👋</h1>
+    <h1 id="greeting">{% blocktranslate %}Hey {{ student_name }} 👋{% endblocktranslate %}</h1>
     <p id="date">{{ date_string }}</p>
 </div>
