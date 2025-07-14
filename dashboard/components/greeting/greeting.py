@@ -9,7 +9,7 @@ from dashboard import services, settings
 
 
 @register("greeting")
-class Timing(Component):
+class Greeting(Component):
     template_file = "greeting/greeting.html"
     css_file = "greeting/greeting.css"
 
