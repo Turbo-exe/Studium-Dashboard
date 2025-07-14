@@ -6,6 +6,7 @@
 # Python runtime files
 __pycache__
 .venv
+.pyc
 
 # Django database
 db.sqlite3
