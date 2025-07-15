@@ -1,33 +1,20 @@
-from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from .academic_entity import AcademicEntity
-from .degree import Degree
 from .semester import Semester
 
 
 class Course(AcademicEntity):
-    """
-    Represents an academic course within a degree program and semester.
-
-    This model stores information about courses offered in specific semesters,
-    including the associated degree program, semester, description, and ECTS credits.
-    """
-    identifier = models.CharField(
-        primary_key=True,
+    """Represents an academic course within a specific semester."""
+    code = models.TextField(
         unique=True,
-        help_text=_("The course identifier (e.g., DLBBIM01)")
-    )
-    degree = models.ForeignKey(
-        to=Degree, 
-        related_name='courses', 
-        on_delete=models.CASCADE,
-        help_text=_("The degree program this course belongs to")
+        help_text=_("The courses code (e.g., DLBBIM01)")
     )
     semester = models.ForeignKey(
-        to=Semester, 
-        related_name='courses', 
+        to=Semester,
+        related_name='courses',
         on_delete=models.CASCADE,
         help_text=_("The semester in which this course is offered")
     )
@@ -45,7 +32,7 @@ class Course(AcademicEntity):
         verbose_name = _("course")
         verbose_name_plural = _("courses")
         indexes = [
-            models.Index(fields=['degree', 'semester']),
+            models.Index(fields=['semester']),
         ]
 
     def __str__(self):

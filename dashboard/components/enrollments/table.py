@@ -14,15 +14,15 @@ class ECTSColumn(tables.Column):
         return int(value)
 
 
-class CourseTable(tables.Table):
+class EnrollmentTable(tables.Table):
     """
     Table for displaying course information based on student enrollments.
     Ref. to goal 1.2 from phase 1 document.
     """
-    identifier = tables.Column(
+    code = tables.Column(
         verbose_name=_("Shortcode"),
         orderable=True,
-        accessor="course.identifier"
+        accessor="course.code"
     )
     name = tables.Column(
         verbose_name=_("Title"),
@@ -50,7 +50,7 @@ class CourseTable(tables.Table):
         accessor="score"
     )
     actions = tables.TemplateColumn(
-        template_name="courses/_action_buttons.html",
+        template_name="enrollments/_action_buttons.html",
         verbose_name=_("Actions"),
         orderable=False,
     )
@@ -61,7 +61,7 @@ class CourseTable(tables.Table):
             "class": "courses-table",
         }
         sequence = (
-            "identifier",
+            "code",
             "name",
             "ects",
             "status",
@@ -69,5 +69,5 @@ class CourseTable(tables.Table):
             "score",
             "actions"
         )
-        exclude = ("created_at", "updated_at", "student", "course", "exam", "id")
+        exclude = ("created_at", "updated_at", "student", "course", "exam", "id", "identifier")
         empty_text = _("No courses found.")

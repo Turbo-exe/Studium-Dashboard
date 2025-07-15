@@ -29,8 +29,8 @@ class Quicklinks(Component):
             context = {}
 
         quicklink_service = services.Quicklinks()
-        context['quicklinks'] = quicklink_service.get_quicklinks_for_student()
-        context['form'] = QuicklinkForm()
+        context["quicklinks"] = quicklink_service.get_quicklinks_for_student()
+        context["form"] = QuicklinkForm()
         return context
 
     def add_quicklink(self, request):

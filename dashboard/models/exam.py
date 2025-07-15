@@ -10,26 +10,11 @@ from .course import Course
 
 class Exam(AcademicEntity):
     """
-    Represents an examination for a specific course.
-
-    This model stores information about exams, including the associated degree program,
-    semester, course, and the type of examination.
+    Represents an exam for a specific course.
     """
-    degree = models.ForeignKey(
-        to=Degree, 
-        related_name='exams', 
-        on_delete=models.CASCADE,
-        help_text=_("The degree program this exam belongs to")
-    )
-    semester = models.ForeignKey(
-        to=Semester, 
-        related_name='exams', 
-        on_delete=models.CASCADE,
-        help_text=_("The semester in which this exam is offered")
-    )
-    course = models.ForeignKey(
+    course = models.OneToOneField(
         to=Course, 
-        related_name='exams', 
+        related_name='exam',
         on_delete=models.CASCADE,
         help_text=_("The course this exam is for")
     )
@@ -41,7 +26,7 @@ class Exam(AcademicEntity):
     )
 
     class Meta:
-        ordering = ['semester', 'course', 'exam_type']
+        ordering = ['course', 'exam_type']
         verbose_name = _("exam")
         verbose_name_plural = _("exams")
         indexes = [

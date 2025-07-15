@@ -2,8 +2,10 @@ from django.db import models
 from django.core.validators import MinLengthValidator
 from django.utils.translation import gettext_lazy as _
 
+from dashboard.models.time_stamped_entity import TimeStampedEntity
 
-class AcademicEntity(models.Model):
+
+class AcademicEntity(TimeStampedEntity):
 
     identifier = models.AutoField(primary_key=True)
     name = models.CharField(
@@ -11,9 +13,6 @@ class AcademicEntity(models.Model):
         help_text=_("The name of this academic entity"),
         validators=[MinLengthValidator(2)]
     )
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
     class Meta:
         abstract = True
         ordering = ['name']

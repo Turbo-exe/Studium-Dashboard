@@ -5,7 +5,6 @@ from django.utils.translation import gettext_lazy as _
 
 from .choices import Status
 from .course import Course
-from .exam import Exam
 from .student import Student
 
 
@@ -28,12 +27,6 @@ class Enrollment(models.Model):
         on_delete=models.CASCADE,
         help_text=_("The course the student is enrolled in")
     )
-    exam = models.ForeignKey(
-        to=Exam,
-        related_name='student_module_exam_mappings',
-        on_delete=models.CASCADE,
-        help_text=_("The exam associated with this enrollment")
-    )
     score = models.DecimalField(
         max_digits=5,
         decimal_places=2,
@@ -55,7 +48,7 @@ class Enrollment(models.Model):
         ordering = ['student', 'course']
         verbose_name = _("enrollment")
         verbose_name_plural = _("enrollment")
-        unique_together = ['student', 'course', 'exam']
+        unique_together = ['student', 'course']
 
     def clean(self):
         """

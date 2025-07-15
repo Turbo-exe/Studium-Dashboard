@@ -5,16 +5,16 @@ from django_components import Component, register
 
 from dashboard.models import Enrollment
 from dashboard.services.courses import CoursesService
-from .filters import CourseFilter
+from .filters import EnrollmentFilter
 from .forms import EnrollmentForm
-from .table import CourseTable
+from .table import EnrollmentTable
 
 
 @register("courses")
-class Courses(Component):
-    template_file = "courses/courses.html"
-    css_file = "courses/courses.css"
-    js_file = "courses/courses.js"
+class Enrollments(Component):
+    template_file = "enrollments/enrollments.html"
+    css_file = "enrollments/enrollments.css"
+    js_file = "enrollments/enrollments.js"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -31,8 +31,8 @@ class Courses(Component):
 
         # Create table and filter
         filter_data = request.POST if request.method == 'POST' else request.GET
-        filter_instance = CourseFilter(data=filter_data, queryset=enrollments)
-        table_instance = CourseTable(filter_instance.qs)
+        filter_instance = EnrollmentFilter(data=filter_data, queryset=enrollments)
+        table_instance = EnrollmentTable(filter_instance.qs)
         tables.RequestConfig(request=request, paginate={"per_page": 10}).configure(table_instance)
 
         # Create form for edit modal
@@ -45,7 +45,7 @@ class Courses(Component):
 
         return context
 
-    def edit_course(self, request, course_id):
+    def edit_course(self, request, course_id) -> JsonResponse:
         """Handle edit course action."""
         try:
             enrollment = get_object_or_404(Enrollment, id=course_id)
@@ -70,7 +70,7 @@ class Courses(Component):
                     "id": enrollment.id,
                     "student": enrollment.student.identifier,
                     "course": enrollment.course.identifier,
-                    "exam": enrollment.exam.identifier,
+                    "exam": enrollment.course.exam.identifier,
                     "score": enrollment.score,
                     "status": enrollment.status
                 }

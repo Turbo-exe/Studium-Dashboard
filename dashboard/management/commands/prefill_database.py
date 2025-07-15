@@ -1,11 +1,8 @@
-import random
-
 from django.core.management.base import BaseCommand
 from django.db import transaction
 
 from dashboard.management.commands._courses import sample_courses
 from dashboard.models import Course, Degree, Semester, Exam, Student, Enrollment
-from dashboard.models.quicklink import Quicklink
 
 
 class Command(BaseCommand):
@@ -18,7 +15,7 @@ class Command(BaseCommand):
                 self._add_semesters(degree=degree)
                 student = self._add_student(degree=degree)
                 self._add_quicklinks(student=student)
-                self._add_courses_and_exams(degree=degree, student=student)
+                self._add_courses_and_exams(student=student)
                 self.stdout.write(self.style.SUCCESS('Database successfully prefilled'))
         except Exception as e:
             self.stdout.write(self.style.ERROR(f'An error occurred: {str(e)}'))
@@ -52,17 +49,17 @@ class Command(BaseCommand):
         student.quicklinks.create(
             text="My Campus",
             url="https://mycampus.iu.org/home",
-            materialIconRef="e88a" # home
+            materialIconRef="e88a"  # home
         )
         student.quicklinks.create(
             text="FAQs",
             url="https://mycampus.iu.org/faq",
-            materialIconRef="eb8b" # question_mark
+            materialIconRef="eb8b"  # question_mark
         )
         student.quicklinks.create(
             text="Kursbuchung",
             url="https://mycampus.iu.org/study-management/study-plan",
-            materialIconRef="e85d" # Assignment
+            materialIconRef="e85d"  # Assignment
         )
         student.quicklinks.create(
             text="Klausuranmeldung",
@@ -72,27 +69,27 @@ class Command(BaseCommand):
         student.quicklinks.create(
             text="Profil",
             url="https://mycampus.iu.org/profile",
-            materialIconRef="e855" # Person
+            materialIconRef="e855"  # Person
         )
         student.quicklinks.create(
             text="Ablaufplan (bis 31.08.25)",
             url="https://res.cloudinary.com/iugroup/image/upload/v1746189253/sap_ba_angewandte_kuenstliche_intelligenz_180_FS_BAAKI_de_fs_mhwa9j.pdf",
-            materialIconRef="e878" # Event
+            materialIconRef="e878"  # Event
         )
 
-    def _add_courses_and_exams(self, degree: Degree, student: Student):
+    def _add_courses_and_exams(self, student: Student):
         for course_data in sample_courses:
             semester = Semester.objects.get(identifier=course_data["semester"])
             course = Course.objects.create(
-                identifier=course_data["short_code"],
+                code=course_data["short_code"],
                 name=course_data["course_name"],
-                degree=degree,
                 semester=semester,
                 description="",
                 ects=course_data["ects"]
             )
             course.save()
-            exam = Exam(degree=degree, semester=semester, course=course, exam_type=course_data["exam_type"])
+            exam = Exam(course=course, exam_type=course_data["exam_type"])
             exam.save()
             status = course_data["status"]
-            Enrollment(status=status, student=student, course=course, exam=exam, score=course_data.get("score", None)).save()
+            Enrollment(status=status, student=student, course=course,
+                       score=course_data.get("score", None)).save()

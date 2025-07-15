@@ -12,16 +12,16 @@ from dashboard import models
 from dashboard.models.choices import Status
 
 
-class CourseFilter(django_filters.FilterSet):
+class EnrollmentFilter(django_filters.FilterSet):
     """
     Filter for course information based on student enrollments.
 
     This filter provides filtering capabilities for enrollment records and their
     associated course attributes.
     """
-    identifier = django_filters.CharFilter(
+    code = django_filters.CharFilter(
         label=_("Shortcode"),
-        field_name="course__identifier",
+        field_name="course__code",
         lookup_expr="icontains",
         label_suffix=""
     )
@@ -55,4 +55,4 @@ class CourseFilter(django_filters.FilterSet):
 
     class Meta:
         model = models.Enrollment
-        exclude = ("status", "score", 'created_at', 'updated_at', 'student', 'course', 'exam', "id")
+        exclude = ("status", "score", 'created_at', 'updated_at', 'student', 'course', 'exam', "id", "identifier")
