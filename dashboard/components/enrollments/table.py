@@ -14,7 +14,7 @@ class ECTSColumn(tables.Column):
         return int(value)
 
 
-class EnrollmentTable(tables.Table):
+class EnrollmentsTable(tables.Table):
     """
     Table for displaying course information based on student enrollments.
     Ref. to goal 1.2 from phase 1 document.

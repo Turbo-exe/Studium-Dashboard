@@ -1,7 +1,7 @@
 {% load static %}
 {% load i18n %}
 
-{% component "modal" modal_id="delete-quicklink-modal" modal_title=_("Delete Quicklink") modal_size="medium" %}
+{% component "modal" modal_id="delete-quicklink-modal" modal_class="" modal_title=_("Delete Quicklink") modal_size="medium" %}
     {% fill "body" %}
         <form id="delete-quicklink-form" method="post" action="{% url 'delete_quicklink' %}">
             {% csrf_token %}

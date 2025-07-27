@@ -4,7 +4,7 @@ from dashboard.services.grade import GradeService
 
 
 @register("grade")
-class Grade(Component):
+class GradeComponent(Component):
     template_file = "grade/grade.html"
     css_file = "grade/grade.css"
 

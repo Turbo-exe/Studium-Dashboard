@@ -2,7 +2,7 @@ from django_components import Component, register
 from ... import services
 
 @register("timing")
-class Timing(Component):
+class TimingComponent(Component):
     template_file = "timing/timing.html"
     css_file = "timing/timing.css"
 

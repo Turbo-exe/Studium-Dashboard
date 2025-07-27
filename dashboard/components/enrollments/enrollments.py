@@ -4,14 +4,14 @@ from django.shortcuts import get_object_or_404
 from django_components import Component, register
 
 from dashboard.models import Enrollment
-from dashboard.services.courses import CoursesService
-from .filters import EnrollmentFilter
-from .forms import EnrollmentForm
-from .table import EnrollmentTable
+from dashboard.services.enrollments import EnrollmentsService
+from .filters import EnrollmentsFilter
+from .forms import EnrollmentsForm
+from .table import EnrollmentsTable
 
 
 @register("courses")
-class Enrollments(Component):
+class EnrollmentsComponent(Component):
     template_file = "enrollments/enrollments.html"
     css_file = "enrollments/enrollments.css"
     js_file = "enrollments/enrollments.js"
@@ -22,8 +22,8 @@ class Enrollments(Component):
             context = {}
 
         # Get enrollments data
-        courses_service = CoursesService()
-        enrollments = courses_service.get_all_enrollments()
+        courses_service = EnrollmentsService()
+        enrollments = courses_service.get_students_enrollments()
 
         # Create request object with enrollments data for the FilteredTableView
         request = kwargs.get('request', self.request)
@@ -31,12 +31,12 @@ class Enrollments(Component):
 
         # Create table and filter
         filter_data = request.POST if request.method == 'POST' else request.GET
-        filter_instance = EnrollmentFilter(data=filter_data, queryset=enrollments)
-        table_instance = EnrollmentTable(filter_instance.qs)
+        filter_instance = EnrollmentsFilter(data=filter_data, queryset=enrollments)
+        table_instance = EnrollmentsTable(filter_instance.qs)
         tables.RequestConfig(request=request, paginate={"per_page": 10}).configure(table_instance)
 
         # Create form for edit modal
-        form = EnrollmentForm()
+        form = EnrollmentsForm()
 
         # Add to context
         context['filter'] = filter_instance
@@ -51,7 +51,7 @@ class Enrollments(Component):
             enrollment = get_object_or_404(Enrollment, id=course_id)
 
             if request.method == 'POST':
-                form = EnrollmentForm(request.POST, instance=enrollment)
+                form = EnrollmentsForm(request.POST, instance=enrollment)
                 if form.is_valid():
                     form.save()
                     return JsonResponse({

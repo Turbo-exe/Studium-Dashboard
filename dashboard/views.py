@@ -2,7 +2,7 @@ import time
 
 from django.shortcuts import render
 
-from dashboard.components.enrollments.enrollments import Enrollments
+from dashboard.components.enrollments.enrollments import EnrollmentsComponent
 
 
 def index(request):
@@ -20,5 +20,5 @@ def edit_course(request, course_id):
 
     This function delegates to the edit_course method of the Courses component.
     """
-    courses_component = Enrollments()
+    courses_component = EnrollmentsComponent()
     return courses_component.edit_course(request, course_id)

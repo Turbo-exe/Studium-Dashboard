@@ -17,7 +17,7 @@ class QuicklinkData:
 
 
 @register("quicklinks")
-class Quicklinks(Component):
+class QuicklinksComponent(Component):
     template_file = "quicklinks/quicklinks.html"
     css_file = "quicklinks/quicklinks.css"
     js_file = "quicklinks/quicklinks.js"

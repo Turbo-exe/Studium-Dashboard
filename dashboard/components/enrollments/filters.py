@@ -12,7 +12,7 @@ from dashboard import models
 from dashboard.models.choices import Status
 
 
-class EnrollmentFilter(django_filters.FilterSet):
+class EnrollmentsFilter(django_filters.FilterSet):
     """
     Filter for course information based on student enrollments.
 

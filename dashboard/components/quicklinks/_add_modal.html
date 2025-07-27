@@ -1,7 +1,7 @@
 {% load static %}
 {% load i18n %}
 
-{% component "modal" modal_id="add-quicklink-modal" modal_title=_("Add Quicklink") modal_size="large" %}
+{% component "modal" modal_id="add-quicklink-modal" modal_class="" modal_title=_("Add Quicklink") modal_size="large" %}
     {% fill "body" %}
         <form id="add-quicklink-form" method="post" action="{% url 'add_quicklink' %}">
             {% csrf_token %}
@@ -23,7 +23,10 @@
                 <span class="form-input">
                     <select name="materialIconRef" id="id_materialIconRef" required>
                         {% for icon_value, icon_name in form.materialIconRef.field.choices %}
-                            <option value="{{ icon_value }}">{{ icon_name }}</option>
+                            asdf
+                            <option value="{{ icon_value }}">
+                                {{ icon_name }}
+                            </option>
                         {% endfor %}
                     </select>
                 </span>

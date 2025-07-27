@@ -1,13 +1,10 @@
 from django.utils import timezone
 
 from dashboard import models
-from dashboard.services.auth import AuthService
+from dashboard.services._base import BaseService
 
 
-class TimingService:
-    def __init__(self):
-        self.auth_service = AuthService()
-        self._student = self.auth_service.get_authenticated_student()
+class TimingService(BaseService):
 
     def count_planned_finished_enrollments(self) -> int:
         """

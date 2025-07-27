@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from dashboard.models import Enrollment, choices
 
 
-class EnrollmentForm(forms.ModelForm):
+class EnrollmentsForm(forms.ModelForm):
     """
     Form for editing enrollment records.
     """

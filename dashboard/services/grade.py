@@ -1,11 +1,8 @@
 from dashboard import models
-from dashboard.services.auth import AuthService
+from dashboard.services._base import BaseService
 
 
-class GradeService:
-    def __init__(self):
-        self.auth_service = AuthService()
-        self._student = self.auth_service.get_authenticated_student()
+class GradeService(BaseService):
 
     def calculate_avg_grade(self):
         enrollments = self._find_finished_enrollments()

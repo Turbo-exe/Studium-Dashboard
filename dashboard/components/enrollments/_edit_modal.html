@@ -1,7 +1,7 @@
 {% load static %}
 {% load i18n %}
 
-{% component "modal" modal_id="edit-course-modal" modal_title=_("Edit Enrollment") modal_size="large" %}
+{% component "modal" modal_id="edit-course-modal" modal_class="" modal_title=_("Edit Enrollment") modal_size="large" %}
     {% fill "body" %}
         <form id="edit-course-form" method="post" action="">
             {% csrf_token %}
