@@ -12,11 +12,14 @@ class TimingComponent(Component):
         if not context:
             context = {}
         timing_service = services.Timing()
-        context["finishedExamsActual"] = timing_service.count_actually_finished_enrollments()
+
+        cnt_actually_finished = timing_service.count_actually_finished_enrollments()
+        cnt_acknowledged = timing_service.count_acknowledged_enrollments()
+        context["finishedExamsActual"] = cnt_actually_finished + cnt_acknowledged
         context["finishedExamsPlan"] = timing_service.count_planned_finished_enrollments()
         context["activeEnrollments"] = timing_service.count_active_enrollments()
         context["futureEnrollments"] = timing_service.count_future_enrollments()
-        context["finishedEnrollments"] = timing_service.count_actually_finished_enrollments()
-        context["acknowledgedEnrollments"] = timing_service.count_acknowledged_enrollments()
+        context["finishedEnrollments"] = cnt_actually_finished
+        context["acknowledgedEnrollments"] = cnt_acknowledged
         context["timeModel"] = timing_service.get_time_model_friendly_name()
         return context
