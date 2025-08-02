@@ -6,7 +6,8 @@ from dashboard.models.time_stamped_entity import TimeStampedEntity
 
 
 class AcademicEntity(TimeStampedEntity):
-
+    """A base class for all academic entities."""
+    
     identifier = models.AutoField(primary_key=True)
     name = models.CharField(
         max_length=255,

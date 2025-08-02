@@ -1,39 +1,31 @@
-# Use Python 3.13.3 as the base image
 FROM python:3.13.3-slim
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED=1
+ENV SQLITE_PATH="/data/db"
 
-# Set work directory
-WORKDIR /app
-
-# Copy project
-COPY dashboard .
-COPY manage.py .
-COPY locale .
-COPY requirements.txt .
-COPY __init__.py .
+WORKDIR /usr/local/study-dashboard
+COPY . .
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     gcc \
     python3-dev \
     libpq-dev \
+    locales \
     && rm -rf /var/lib/apt/lists/*
+
+# Set the locale (english and german)
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    sed -i -e 's/# de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Create directory for the SQLite database
-RUN mkdir -p /data/db # This is volume
-
-# Make the entrypoint script executable
-COPY entrypoint.sh .
-RUN chmod +x entrypoint.sh
-
-# Set the entrypoint script
-ENTRYPOINT ["/app/entrypoint.sh"]
+# Setup database
+RUN mkdir -p ${SQLITE_PATH}
+RUN python manage.py migrate --noinput
+RUN python manage.py prefill_database # This step is only for the prototype to have some data for evaluation purposes
 
 # Expose port 8000
 EXPOSE 8000

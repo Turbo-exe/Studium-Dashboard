@@ -8,9 +8,7 @@ from .degree import Degree
 
 
 def validate_year(value):
-    """
-    Validates that the year is within a reasonable range.
-    """
+    """Validates that the year is within a reasonable range."""
     current_year = datetime.now().year
     if value < 2000 or value > current_year + 10:
         raise ValidationError(
@@ -20,12 +18,7 @@ def validate_year(value):
 
 
 class Semester(AcademicEntity):
-    """
-    Represents an academic semester within a degree program.
-
-    This model stores information about academic semesters, including the associated
-    degree program, academic year, and the start and end dates of the semester.
-    """
+    """Represents an academic semester within a degree program."""
     degree = models.ForeignKey(
         to=Degree, 
         related_name='semesters', 

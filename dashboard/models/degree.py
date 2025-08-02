@@ -6,12 +6,7 @@ from .choices import DegreeType
 
 
 class Degree(AcademicEntity):
-    """
-    Represents an academic degree program offered by the institution.
-
-    This model stores information about different degree programs such as
-    Bachelor's, Master's, or PhD, including their type and description.
-    """
+    """Represents an academic degree program offered by the institution."""
     degree_type = models.CharField(
         max_length=3, 
         choices=DegreeType.choices,

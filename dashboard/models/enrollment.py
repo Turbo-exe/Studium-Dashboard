@@ -9,12 +9,7 @@ from .student import Student
 
 
 class Enrollment(models.Model):
-    """
-    Represents the relationship between a student, course and exam.
-
-    This model stores information about a student's enrollment in a course,
-    including the associated exam, score and status.
-    """
+    """Implements the many-to-many relationship between models.Student and models.Course."""
     student = models.ForeignKey(
         to=Student,
         related_name='student_module_exam_mappings',

@@ -6,12 +6,7 @@ from .material_icons import MATERIAL_ICONS
 
 
 class Quicklink(models.Model):
-    """
-    Represents an academic semester within a degree program.
-
-    This model stores information about academic semesters, including the associated
-    degree program, academic year, and the start and end dates of the semester.
-    """
+    """Represents an academic semester within a degree program."""
     student = models.ForeignKey(
         to=Student,
         related_name='quicklinks',

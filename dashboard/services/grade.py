@@ -5,6 +5,7 @@ from dashboard.services._base import BaseService
 class GradeService(BaseService):
 
     def calculate_avg_grade(self):
+        """Calculates the average grade for the student based on their finished enrollments."""
         enrollments = self._find_finished_enrollments()
         if not enrollments.exists():
             return None
@@ -13,10 +14,12 @@ class GradeService(BaseService):
         return self._map_avg_score_to_grade(avg_score=avg_score)
 
     def count_enrollments_forming_avg_grade(self) -> int:
+        """Returns the number of enrollments that are part of the average grade calculation."""
         enrollments = self._find_finished_enrollments()
         return enrollments.count()
 
     def count_recognized_courses(self) -> int:
+        """Returns the number of courses recognized for the student based on prior experience/degrees."""
         return models.Enrollment.objects.filter(
             student=self._student,
             status=models.Status.COMPLETED,
@@ -24,7 +27,7 @@ class GradeService(BaseService):
         ).count()
 
     def _find_finished_enrollments(self):
-        """This method returns all enrollments that have been finished by the student (excludes recognized courses)."""
+        """Returns all enrollments that have been finished by the student (excludes recognized courses)."""
         return models.Enrollment.objects.filter(
             student=self._student,
             status=models.Status.COMPLETED,

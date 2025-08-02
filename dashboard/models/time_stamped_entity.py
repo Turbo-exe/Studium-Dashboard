@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class TimeStampedEntity(models.Model):
+    """A base class to enforce time stamping on all models."""
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

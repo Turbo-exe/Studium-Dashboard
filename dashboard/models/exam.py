@@ -3,23 +3,19 @@ from django.utils.translation import gettext_lazy as _
 
 from .academic_entity import AcademicEntity
 from .choices import ExamType
-from .degree import Degree
-from .semester import Semester
 from .course import Course
 
 
 class Exam(AcademicEntity):
-    """
-    Represents an exam for a specific course.
-    """
+    """Represents an exam for a specific course."""
     course = models.OneToOneField(
-        to=Course, 
+        to=Course,
         related_name='exam',
         on_delete=models.CASCADE,
         help_text=_("The course this exam is for")
     )
     exam_type = models.CharField(
-        max_length=2, 
+        max_length=2,
         choices=ExamType.choices,
         db_index=True,
         help_text=_("The type of examination")

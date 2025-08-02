@@ -26,8 +26,15 @@ class GreetingComponent(Component):
     def _get_date_string():
         """Builds a date string in the format (in german) → 'Mittwoch, 26.03.2025'."""
         current_language = get_language()
+        try:
+            if current_language == 'de':
+                locale.setlocale(locale.LC_TIME, 'de_DE.UTF-8')
+            else:
+                locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
+        except locale.Error:
+            locale.setlocale(locale.LC_TIME, '')
 
-        locale.setlocale(category=locale.LC_TIME, locale=f"{current_language}.UTF-8")
-        berlin_tz = pytz.timezone(settings.TIME_ZONE)
-        now = datetime.now(tz=berlin_tz)
-        return now.strftime("%A, %d. %B %Y")
+        current_date = datetime.now()
+        date_string = current_date.strftime('%A, %d.%m.%Y')
+        locale.setlocale(locale.LC_TIME, '')
+        return date_string

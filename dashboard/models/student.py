@@ -9,12 +9,7 @@ from .course import Course
 
 
 class Student(AcademicEntity):
-    """
-    Represents a student enrolled in a degree program.
-
-    This model stores information about students, including their associated degree program,
-    current semester, and the courses they are enrolled in through the StudentModuleExamMapping.
-    """
+    """Represents a student enrolled in a degree program."""
     first_name = models.TextField(
         verbose_name=_('first name'),
         max_length=100
