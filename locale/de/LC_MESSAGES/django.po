@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-14 16:21+0200\n"
+"POT-Creation-Date: 2025-08-29 17:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,99 +19,161 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\dashboard\components\courses\_action_buttons.html:8
+#: .\dashboard\components\enrollments\_action_buttons.html:8
 msgid "Edit enrollment"
 msgstr "Kurs bearbeiten"
 
-#: .\dashboard\components\courses\_edit_modal.html:4
-msgid "Edit Enrollment"
+#: .\dashboard\components\enrollments\_action_buttons.html:14
+#, fuzzy
+#| msgid "Edit enrollment"
+msgid "Delete enrollment"
 msgstr "Kurs bearbeiten"
 
-#: .\dashboard\components\courses\_edit_modal.html:27
-#: .\dashboard\components\quicklinks\_add_modal.html:34
+#: .\dashboard\components\enrollments\_add_modal.html:4
+#: .\dashboard\components\enrollments\_add_modal.html:30
+#: .\dashboard\components\enrollments\enrollments.html:15
+#, fuzzy
+#| msgid "Edit Enrollment"
+msgid "Add Enrollment"
+msgstr "Kurs bearbeiten"
+
+#: .\dashboard\components\enrollments\_add_modal.html:18
+#: .\dashboard\components\enrollments\_edit_modal.html:27
+#: .\dashboard\components\quicklinks\_add_modal.html:36
 msgid "Invalid input!"
 msgstr "Ungültige Eingabe!"
 
-#: .\dashboard\components\courses\_edit_modal.html:37
-#: .\dashboard\components\quicklinks\_add_modal.html:44
-#: .\dashboard\components\quicklinks\_delete_modal.html:24
+#: .\dashboard\components\enrollments\_add_modal.html:28
+#: .\dashboard\components\enrollments\_delete_modal.html:19
+#: .\dashboard\components\enrollments\_edit_modal.html:37
+#: .\dashboard\components\quicklinks\_add_modal.html:46
+#: .\dashboard\components\quicklinks\_delete_modal.html:19
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: .\dashboard\components\courses\_edit_modal.html:39
+#: .\dashboard\components\enrollments\_delete_modal.html:4
+#, fuzzy
+#| msgid "Edit Enrollment"
+msgid "Delete Enrollment"
+msgstr "Kurs bearbeiten"
+
+#: .\dashboard\components\enrollments\_delete_modal.html:11
+#, fuzzy
+#| msgid "Are you sure you want to delete this quicklink?"
+msgid "Are you sure you want to cancel this enrollment?"
+msgstr "Bist du dir sicher, dass du dieses Quicklink löschen möchtest?"
+
+#: .\dashboard\components\enrollments\_delete_modal.html:12
+#: .\dashboard\components\quicklinks\_delete_modal.html:12
+msgid "This action cannot be undone!"
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden!"
+
+#: .\dashboard\components\enrollments\_delete_modal.html:12
+#, fuzzy
+#| msgid "The quicklink will be permanently removed from your dashboard."
+msgid "The enrollment will be permanently removed from your dashboard."
+msgstr "Der Quicklink wird für immer von deinem Dashboard entfernt."
+
+#: .\dashboard\components\enrollments\_delete_modal.html:21
+#: .\dashboard\components\quicklinks\_delete_modal.html:21
+msgid "Delete"
+msgstr "Löschen"
+
+#: .\dashboard\components\enrollments\_edit_modal.html:4
+msgid "Edit Enrollment"
+msgstr "Kurs bearbeiten"
+
+#: .\dashboard\components\enrollments\_edit_modal.html:39
 msgid "Save changes"
 msgstr "Speichern"
 
-#: .\dashboard\components\courses\courses.html:9
+#: .\dashboard\components\enrollments\enrollments.html:11
 msgid "Your courses."
 msgstr "Deine Kurse"
 
-#: .\dashboard\components\courses\courses.html:26
+#: .\dashboard\components\enrollments\enrollments.html:35
 msgid "Apply filters"
 msgstr "Filter anwenden"
 
-#: .\dashboard\components\courses\courses.html:26
+#: .\dashboard\components\enrollments\enrollments.html:35
 msgid "Filter"
 msgstr "Filter"
 
-#: .\dashboard\components\courses\courses.html:41
-#, python-format
+#: .\dashboard\components\enrollments\enrollments.html:51
+#, fuzzy, python-format
+#| msgid ""
+#| "Showing %(start)s to %(end)s\n"
+#| "                    of %(total)s courses"
 msgid ""
-"Showing %(start)s to %(end)s\n"
-"                    of %(total)s courses"
+"\n"
+"                        Showing %(start)s to %(end)s\n"
+"                        of %(total)s courses"
 msgstr ""
-"Zeige %(start)s bis %(end)s\n"
-"                    von %(total)s Kursen"
+"Zeige %(start)s bis %(end)s von %(total)s Kursen"
 
-#: .\dashboard\components\courses\filters.py:23
-#: .\dashboard\components\courses\table.py:23
+#: .\dashboard\components\enrollments\filters.py:16
+#: .\dashboard\components\enrollments\table.py:23
 msgid "Shortcode"
 msgstr "Kürzel"
 
-#: .\dashboard\components\courses\filters.py:29
-#: .\dashboard\components\courses\table.py:28
+#: .\dashboard\components\enrollments\filters.py:22
+#: .\dashboard\components\enrollments\table.py:28
 msgid "Title"
 msgstr "Titel"
 
-#: .\dashboard\components\courses\filters.py:35
-#: .\dashboard\components\courses\table.py:33
+#: .\dashboard\components\enrollments\filters.py:28
+#: .\dashboard\components\enrollments\table.py:33
 msgid "ECTS"
 msgstr "ECTS"
 
-#: .\dashboard\components\courses\filters.py:40
-#: .\dashboard\components\courses\forms.py:20
-#: .\dashboard\components\courses\table.py:38
+#: .\dashboard\components\enrollments\filters.py:33
+#: .\dashboard\components\enrollments\table.py:38
 msgid "Status"
 msgstr "Status"
 
-#: .\dashboard\components\courses\filters.py:45
-#: .\dashboard\components\courses\table.py:43
+#: .\dashboard\components\enrollments\filters.py:38
+#: .\dashboard\components\enrollments\table.py:43
 msgid "Description"
 msgstr "Beschreibung"
 
-#: .\dashboard\components\courses\filters.py:51
-#: .\dashboard\components\courses\forms.py:19
-#: .\dashboard\components\courses\table.py:48
+#: .\dashboard\components\enrollments\filters.py:44
+#: .\dashboard\components\enrollments\table.py:48
 msgid "Score"
 msgstr "Punktzahl"
 
-#: .\dashboard\components\courses\forms.py:23
-msgid "Achieved score (0 to 100)"
-msgstr "Erreichte Punktzahl (0 bis 100)"
+#: .\dashboard\components\enrollments\forms.py:27
+#, fuzzy
+#| msgid "The course the student is enrolled in"
+msgid "Select the course to enroll in"
+msgstr "Der Kurs, in den der Student eingeschrieben ist"
 
-#: .\dashboard\components\courses\forms.py:24
-msgid "Status of this course"
-msgstr "Status dieses Kurses"
+#: .\dashboard\components\enrollments\forms.py:33
+msgid "Please select the course to enroll in."
+msgstr "Bitte wähle den Kurs aus in den du dich einschreiben möchtest."
 
-#: .\dashboard\components\courses\forms.py:33
-msgid "Score must be between 0 and 100."
-msgstr "Die Punktzahl muss zwischen 0 und 100 liegen."
+#: .\dashboard\components\enrollments\forms.py:35
+#, fuzzy
+#| msgid "The student enrolled in the course"
+msgid "You are already enrolled in this course."
+msgstr "Der in den Kurs eingeschriebene Student"
 
-#: .\dashboard\components\courses\table.py:54
+#: .\dashboard\components\enrollments\forms.py:50
+#, fuzzy
+#| msgid "The current status of this enrollment"
+msgid "Current status of the enrollment"
+msgstr "Der aktuelle Status dieser Einschreibung"
+
+#: .\dashboard\components\enrollments\forms.py:51
+#, fuzzy
+#| msgid "The current status of this enrollment"
+msgid "Score for this enrollment (0-100)"
+msgstr "Der aktuelle Status dieser Einschreibung"
+
+#: .\dashboard\components\enrollments\table.py:54
 msgid "Actions"
 msgstr "Aktionen"
 
-#: .\dashboard\components\courses\table.py:73
+#: .\dashboard\components\enrollments\table.py:73
 msgid "No courses found."
 msgstr "Keine Kurse gefunden."
 
@@ -130,7 +192,7 @@ msgid "Hey %(student_name)s 👋"
 msgstr "Hey %(student_name)s 👋"
 
 #: .\dashboard\components\quicklinks\_add_modal.html:4
-#: .\dashboard\components\quicklinks\_add_modal.html:46
+#: .\dashboard\components\quicklinks\_add_modal.html:48
 msgid "Add Quicklink"
 msgstr "Quicklink hinzufügen"
 
@@ -139,7 +201,7 @@ msgid "Text"
 msgstr "Text"
 
 #: .\dashboard\components\quicklinks\_add_modal.html:12
-#: .\dashboard\models\quicklink.py:23
+#: .\dashboard\models\quicklink.py:18
 msgid "The text of the quicklink"
 msgstr "Der Text des Quicklinks"
 
@@ -148,7 +210,7 @@ msgid "URL"
 msgstr "URL"
 
 #: .\dashboard\components\quicklinks\_add_modal.html:18
-#: .\dashboard\models\quicklink.py:26
+#: .\dashboard\models\quicklink.py:21
 msgid "The URL of the quicklink"
 msgstr "Die URL des Quicklinks"
 
@@ -157,7 +219,7 @@ msgid "Icon"
 msgstr "Icon"
 
 # .\dashboard\components\quicklinks\_add_modal.html:29
-#: .\dashboard\components\quicklinks\_add_modal.html:30
+#: .\dashboard\components\quicklinks\_add_modal.html:32
 msgid "The icon for the quicklink"
 msgstr "Das Icon des Quicklinks"
 
@@ -165,26 +227,13 @@ msgstr "Das Icon des Quicklinks"
 msgid "Delete Quicklink"
 msgstr "Quicklink"
 
-#: .\dashboard\components\quicklinks\_delete_modal.html:10
+#: .\dashboard\components\quicklinks\_delete_modal.html:11
 msgid "Are you sure you want to delete this quicklink?"
 msgstr "Bist du dir sicher, dass du dieses Quicklink löschen möchtest?"
 
-#: .\dashboard\components\quicklinks\_delete_modal.html:11
-msgid "This action cannot be undone!"
-msgstr "Diese Aktion kann nicht rückgängig gemacht werden!"
-
-#: .\dashboard\components\quicklinks\_delete_modal.html:11
+#: .\dashboard\components\quicklinks\_delete_modal.html:12
 msgid "The quicklink will be permanently removed from your dashboard."
 msgstr "Der Quicklink wird für immer von deinem Dashboard entfernt."
-
-#: .\dashboard\components\quicklinks\_delete_modal.html:14
-msgid "Error!"
-msgstr "Fehler!"
-
-#: .\dashboard\components\quicklinks\_delete_modal.html:26
-#: .\dashboard\components\quicklinks\quicklinks.html:19
-msgid "Delete"
-msgstr "Löschen"
 
 #: .\dashboard\components\quicklinks\quicklinks.html:6
 msgid "Quicklinks."
@@ -235,19 +284,11 @@ msgstr "Zukünftige Kurse"
 msgid "Acknowledged courses"
 msgstr "Anerkannte Kurse"
 
-#: .\dashboard\index.html:8 .\dashboard\index.html:53
+#: .\dashboard\index.html:8 .\dashboard\index.html:52
 msgid "Study Dashboard"
 msgstr "Studium Dashboard"
 
-#: .\dashboard\index.html:52
-msgid "Study Dashboard Logo"
-msgstr "Studium Dashboard Logo"
-
-#: .\dashboard\index.html:87
-msgid "IU Logo © 2025 Copyright © IU Internationale Hochschule - All rights reserved"
-msgstr "IU Logo © 2025 Copyright © IU Internationale Hochschule - Alle Rechte vorbehalten"
-
-#: .\dashboard\models\academic_entity.py:11
+#: .\dashboard\models\academic_entity.py:14
 msgid "The name of this academic entity"
 msgstr "Der Name dieser akademischen Einheit"
 
@@ -331,119 +372,129 @@ msgstr "Teilzeit 1"
 msgid "Part-time 2"
 msgstr "Teilzeit 2"
 
-#: .\dashboard\models\course.py:20
-msgid "The course identifier (e.g., DLBBIM01)"
+#: .\dashboard\models\course.py:13
+#, fuzzy
+#| msgid "The course identifier (e.g., DLBBIM01)"
+msgid "The courses code (e.g., DLBBIM01)"
 msgstr "Die Kurskennung (z.B. DLBBIM01)"
 
-#: .\dashboard\models\course.py:26
-msgid "The degree program this course belongs to"
-msgstr "Der Studiengang, zu dem dieser Kurs gehört"
-
-#: .\dashboard\models\course.py:32
+#: .\dashboard\models\course.py:19
 msgid "The semester in which this course is offered"
 msgstr "Das Semester, in dem dieser Kurs angeboten wird"
 
-#: .\dashboard\models\course.py:36
+#: .\dashboard\models\course.py:23
 msgid "Detailed description of the course content"
 msgstr "Detaillierte Beschreibung des Kursinhalts"
 
-#: .\dashboard\models\course.py:40
+#: .\dashboard\models\course.py:27
 msgid "The number of ECTS credits for this course"
 msgstr "Die Anzahl der ECTS-Punkte für diesen Kurs"
 
-#: .\dashboard\models\course.py:45
+#: .\dashboard\models\course.py:32
 msgid "course"
 msgstr "Kurs"
 
-#: .\dashboard\models\course.py:46
+#: .\dashboard\models\course.py:33
 msgid "courses"
 msgstr "Kurse"
 
-#: .\dashboard\models\degree.py:19
+#: .\dashboard\models\degree.py:14
 msgid "The type of degree (Bachelor, Master, PhD)"
 msgstr "Die Art des Abschlusses (Bachelor, Master, Promotion)"
 
-#: .\dashboard\models\degree.py:23
+#: .\dashboard\models\degree.py:18
 msgid "Detailed description of the degree program"
 msgstr "Detaillierte Beschreibung des Studiengangs"
 
-#: .\dashboard\models\degree.py:28
+#: .\dashboard\models\degree.py:23
 msgid "degree"
 msgstr "Studiengang"
 
-#: .\dashboard\models\degree.py:29
+#: .\dashboard\models\degree.py:24
 msgid "degrees"
 msgstr "Studiengänge"
 
-#: .\dashboard\models\enrollment.py:23
+#: .\dashboard\models\enrollment.py:17
 msgid "The student enrolled in the course"
 msgstr "Der in den Kurs eingeschriebene Student"
 
-#: .\dashboard\models\enrollment.py:29
+#: .\dashboard\models\enrollment.py:23
 msgid "The course the student is enrolled in"
 msgstr "Der Kurs, in den der Student eingeschrieben ist"
 
-#: .\dashboard\models\enrollment.py:35
-msgid "The exam associated with this enrollment"
-msgstr "Die mit dieser Einschreibung verbundene Prüfung"
-
-#: .\dashboard\models\enrollment.py:43
+#: .\dashboard\models\enrollment.py:31
 msgid "The student's score for this exam (0.0 to 100.0)"
 msgstr "Die Punktzahl des Studenten für diese Prüfung (0,0 bis 100,0)"
 
-#: .\dashboard\models\enrollment.py:49
+#: .\dashboard\models\enrollment.py:37
 msgid "The current status of this enrollment"
 msgstr "Der aktuelle Status dieser Einschreibung"
 
-#: .\dashboard\models\enrollment.py:56 .\dashboard\models\enrollment.py:57
+#: .\dashboard\models\enrollment.py:44 .\dashboard\models\enrollment.py:45
 msgid "enrollment"
 msgstr "Einschreibung"
 
-#: .\dashboard\models\enrollment.py:65
+#: .\dashboard\models\enrollment.py:54
 msgid "Score must be between 0.0 and 100.0."
 msgstr "Die Punktzahl muss zwischen 0,0 und 100,0 liegen."
 
-#: .\dashboard\models\exam.py:22
-msgid "The degree program this exam belongs to"
-msgstr "Der Studiengang, zu dem diese Prüfung gehört"
+#: .\dashboard\models\enrollment.py:58
+#, fuzzy
+#| msgid "Score must be between 0 and 100."
+msgid "Score must be set for a completed exam."
+msgstr "Die Punktzahl muss zwischen 0 und 100 liegen."
 
-#: .\dashboard\models\exam.py:28
-msgid "The semester in which this exam is offered"
-msgstr "Das Semester, in dem diese Prüfung angeboten wird"
+#: .\dashboard\models\enrollment.py:60
+msgid "Score must be at least 50.0 for a completed exam."
+msgstr "Die Punktzahl muss für einen abgeschlossenen Kurs bei mindestens 50.0 liegen"
 
-#: .\dashboard\models\exam.py:34
+#: .\dashboard\models\enrollment.py:63
+#, fuzzy
+#| msgid "Score must be between 0 and 100."
+msgid "Score must be set for a failed exam."
+msgstr "Die Punktzahl muss zwischen 0 und 100 liegen."
+
+#: .\dashboard\models\enrollment.py:65
+msgid "Score must be less then 50.0 for the exam to be failed."
+msgstr "Die Punktzahl muss für einen nicht-bestandenen Kurs unter 50.0 liegen. "
+
+#: .\dashboard\models\enrollment.py:67
+msgid "Score cannot be set if the enrollment is not finished."
+msgstr "Punktzahl kann nicht gesetzt werden, wenn der Kurs noch nicht abgeschlossen ist."
+
+#: .\dashboard\models\exam.py:15
 msgid "The course this exam is for"
 msgstr "Der Kurs, für den diese Prüfung bestimmt ist"
 
-#: .\dashboard\models\exam.py:40
+#: .\dashboard\models\exam.py:21
 msgid "The type of examination"
 msgstr "Die Art der Prüfung"
 
-#: .\dashboard\models\exam.py:45
+#: .\dashboard\models\exam.py:26
 msgid "exam"
 msgstr "Prüfung"
 
-#: .\dashboard\models\exam.py:46
+#: .\dashboard\models\exam.py:27
 msgid "exams"
 msgstr "Prüfungen"
 
-#: .\dashboard\models\quicklink.py:19 .\dashboard\models\semester.py:33
+#: .\dashboard\models\quicklink.py:14 .\dashboard\models\semester.py:26
 msgid "The degree program this semester belongs to"
 msgstr "Der Studiengang, zu dem dieses Semester gehört"
 
-#: .\dashboard\models\quicklink.py:31 .\dashboard\models\semester.py:38
+#: .\dashboard\models\quicklink.py:26 .\dashboard\models\semester.py:31
 msgid "The academic year of this semester"
 msgstr "Das akademische Jahr dieses Semesters"
 
-#: .\dashboard\models\quicklink.py:36
+#: .\dashboard\models\quicklink.py:31
 msgid "Quicklink"
 msgstr "Quicklink"
 
-#: .\dashboard\models\quicklink.py:37
+#: .\dashboard\models\quicklink.py:32
 msgid "Quicklinks"
 msgstr "Quicklinks"
 
-#: .\dashboard\models\semester.py:17
+#: .\dashboard\models\semester.py:15
 #, python-format
 msgid ""
 "%(value)s is not a valid year. Year must be between 2000 and %(max_year)s."
@@ -451,62 +502,70 @@ msgstr ""
 "%(value)s ist kein gültiges Jahr. Das Jahr muss zwischen 2000 und "
 "%(max_year)s liegen."
 
-#: .\dashboard\models\semester.py:41
+#: .\dashboard\models\semester.py:34
 msgid "The start date of this semester"
 msgstr "Das Startdatum dieses Semesters"
 
-#: .\dashboard\models\semester.py:44
+#: .\dashboard\models\semester.py:37
 msgid "The end date of this semester"
 msgstr "Das Enddatum dieses Semesters"
 
-#: .\dashboard\models\semester.py:49
+#: .\dashboard\models\semester.py:42
 msgid "semester"
 msgstr "Semester"
 
-#: .\dashboard\models\semester.py:50
+#: .\dashboard\models\semester.py:43
 msgid "semesters"
 msgstr "Semester"
 
-#: .\dashboard\models\semester.py:63
+#: .\dashboard\models\semester.py:56
 msgid "Start date must be before end date."
 msgstr "Das Startdatum muss vor dem Enddatum liegen."
 
-#: .\dashboard\models\student.py:19
+#: .\dashboard\models\student.py:14
 msgid "first name"
 msgstr "Vorname"
 
-#: .\dashboard\models\student.py:23
+#: .\dashboard\models\student.py:18
 msgid "last name"
 msgstr "Nachname"
 
-#: .\dashboard\models\student.py:27
+#: .\dashboard\models\student.py:22
 msgid "email"
 msgstr "E-Mail"
 
-#: .\dashboard\models\student.py:31
+#: .\dashboard\models\student.py:26
 msgid "time model"
 msgstr "Zeitmodell"
 
-#: .\dashboard\models\student.py:36
+#: .\dashboard\models\student.py:31
 msgid "joined on"
 msgstr "beigetreten am"
 
-#: .\dashboard\models\student.py:42
+#: .\dashboard\models\student.py:37
 msgid "The degree program this student is enrolled in"
 msgstr "Das Studienprogramm in welchem der Student eingeschrieben ist"
 
-#: .\dashboard\models\student.py:48
+#: .\dashboard\models\student.py:43
 msgid "The current semester of this student"
 msgstr "Das aktuelle Semester dieses Studenten"
 
-#: .\dashboard\models\student.py:54
+#: .\dashboard\models\student.py:49
 msgid "The courses this student is enrolled in"
 msgstr "Ein Kurs in dem dieser Student eingeschrieben ist"
 
-#: .\dashboard\models\student.py:59
+#: .\dashboard\models\student.py:54
 msgid "student"
 msgstr "Student"
 
-#: .\dashboard\models\student.py:60
+#: .\dashboard\models\student.py:55
 msgid "students"
 msgstr "Studenten"
+
+#: .\dashboard\models\time_stamped_entity.py:13
+msgid "time stamped entity"
+msgstr ""
+
+#: .\dashboard\models\time_stamped_entity.py:14
+msgid "time stamped entities"
+msgstr ""
