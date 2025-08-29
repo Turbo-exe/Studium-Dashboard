@@ -12,22 +12,25 @@ function setupAddQuicklinkForm() {
     const saveBtn = document.getElementById('save-quicklink-btn');
     if (!saveBtn) return;
 
-    saveBtn.addEventListener('click', function() {
+    saveBtn.addEventListener('click', function () {
         const form = document.getElementById('add-quicklink-form');
         const formData = new FormData(form);
 
-        fetch(form.action || window.location.href, {
+        fetch(form.action, {
             method: 'POST',
             body: formData,
             headers: {
                 'X-Requested-With': 'XMLHttpRequest'
             }
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
+        }).then(async (response) => {
+
+            if (response.status === 201) {
                 window.location.reload();
-            } else {
+            } else if (response.status === 400) {
+                const data = await response.json();
+                // Log error
+                console.error("Failed to add quicklink", data);
+
                 // Display errors
                 const errorsList = document.getElementById('add-form-errors');
                 errorsList.innerHTML = '';
@@ -40,10 +43,14 @@ function setupAddQuicklinkForm() {
                     }
                     document.querySelector('#add-quicklink-form .form-errors').style.display = 'block';
                 }
+            } else if (response.status === 500) {
+                const data = await response.json();
+                // Log error
+                console.error("Failed to add quicklink", data);
+                // Display error
+                alert("Failed to add quicklink. The dashboard will restart after you acknowledge this message.");
+                window.location.reload();
             }
-        })
-        .catch(error => {
-            console.error('Error:', error);
         });
     });
 }
@@ -53,38 +60,28 @@ function setupDeleteQuicklinkForm() {
     const deleteBtn = document.getElementById('confirm-delete-btn');
     if (!deleteBtn) return;
 
-    deleteBtn.addEventListener('click', function() {
-        const form = document.getElementById('delete-quicklink-form');
+    deleteBtn.addEventListener('click', function () {
+        const quicklinkId = document.getElementById("delete-quicklink-id").value;
+        const form = document.getElementById("delete-quicklink-form");
         const formData = new FormData(form);
 
-        fetch(form.action || window.location.href, {
+        fetch(`delete-quicklink/${quicklinkId}/`, {
             method: 'POST',
-            body: formData,
+            body: formData,   // Although we don't need to send any business data, we require this for the CSRF cookie
             headers: {
                 'X-Requested-With': 'XMLHttpRequest'
             }
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
+        }).then(async (response) => {
+            if (response.status === 204) {
                 window.location.reload();
-            } else {
-                // Display errors
-                const errorsList = document.getElementById('delete-form-errors');
-                errorsList.innerHTML = '';
-
-                if (data.errors) {
-                    for (const field in data.errors) {
-                        const li = document.createElement('li');
-                        li.textContent = `${field}: ${data.errors[field].join(' ')}`;
-                        errorsList.appendChild(li);
-                    }
-                    document.querySelector('#delete-quicklink-form .form-errors').style.display = 'block';
-                }
+            } else if (response.status === 500) {
+                const data = await response.json();
+                // Log error
+                console.error("Failed to delete quicklink", data);
+                // Display error
+                alert("Failed to delete quicklink. The dashboard will restart after you acknowledge this message.");
+                window.location.reload();
             }
-        })
-        .catch(error => {
-            console.error('Error:', error);
         });
     });
 }
@@ -118,7 +115,6 @@ function getItemCountPerPage() {
     if (itemCountPerPage < 1) itemCountPerPage = 1;
     return itemCountPerPage;
 }
-
 
 function determinePageCount() {
     const wrapper = document.getElementById('quicklinksWrapperInner');

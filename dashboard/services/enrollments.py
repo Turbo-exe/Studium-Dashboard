@@ -1,6 +1,8 @@
 from django.db.models import QuerySet
+from django.shortcuts import get_object_or_404
 
 from ._base import BaseService
+from ..models import Status, Course
 from ..models.enrollment import Enrollment
 
 
@@ -12,3 +14,27 @@ class EnrollmentsService(BaseService):
             student=self._student
         ).select_related('course')
         return enrollments
+
+    def add_enrollment(self, course: Course) -> Enrollment:
+        """Add an enrollment to a student."""
+        enrollment = Enrollment(
+            student=self._student,
+            course=course,
+            status=Status.AVAILABLE
+        )
+        enrollment.save()
+        return enrollment
+
+    def get_enrollment_by_id(self, enrollment_id: int) -> Enrollment:
+        """Get a specific enrollment by ID for the authenticated student."""
+        return get_object_or_404(Enrollment, id=enrollment_id, student=self._student)
+
+    def update_enrollment(self, enrollment_id: int, status: Status, score: int or None) -> None:
+        enrollment = get_object_or_404(Enrollment, id=enrollment_id, student=self._student)
+        enrollment.status = status
+        enrollment.score = score
+        enrollment.save()
+
+    def delete_enrollment(self, enrollment_id: int) -> None:
+        enrollment = get_object_or_404(Enrollment, id=enrollment_id, student=self._student)
+        enrollment.delete()

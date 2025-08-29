@@ -3,19 +3,14 @@
 
 {% component "modal" modal_id="delete-quicklink-modal" modal_class="" modal_title=_("Delete Quicklink") modal_size="medium" %}
     {% fill "body" %}
-        <form id="delete-quicklink-form" method="post" action="{% url 'delete_quicklink' %}">
+        <!-- Note: This is not a django form. It is a simple form with a hidden input handled by javascript-->
+        <form id="delete-quicklink-form" method="post">
             {% csrf_token %}
             <input type="hidden" name="quicklink_id" id="delete-quicklink-id">
 
             <p>{% translate "Are you sure you want to delete this quicklink?" %}</p>
             <p><strong>{% translate "This action cannot be undone!" %}</strong> {% translate "The quicklink will be permanently removed from your dashboard." %}</p>
 
-            <div class="form-errors" style="display: none;">
-                <h3>{% translate "Error!" %}</h3>
-                <div class="alert alert-danger">
-                    <ul id="delete-form-errors"></ul>
-                </div>
-            </div>
         </form>
     {% endfill %}
 

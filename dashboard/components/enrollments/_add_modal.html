@@ -1,0 +1,32 @@
+{% load static %}
+{% load i18n %}
+
+{% component "modal" modal_id="add-enrollment-modal" modal_class="" modal_title=_("Add Enrollment") modal_size="large" %}
+    {% fill "body" %}
+        <form id="add-enrollment-form" method="post" action="{% url 'add_enrollment' %}">
+            {% csrf_token %}
+
+            <div class="form-field">
+                <label class="form-label" for="id_score">{{ add_form.course.label }}</label>
+                <span class="form-input">{{ add_form.course }}</span>
+                {% if add_form.course.help_text %}
+                    <small class="form-hint">{{ add_form.course.help_text }}</small>
+                {% endif %}
+            </div>
+
+            <div class="form-errors" style="display: none;">
+                <h3>{% translate "Invalid input!" %}</h3>
+                <div class="alert alert-danger">
+                    <ul id="add-enrollment-form-errors"></ul>
+                </div>
+            </div>
+        </form>
+    {% endfill %}
+
+    {% fill "footer" %}
+        <button type="button" class="button-secondary" data-modal-id="add-enrollment-modal"
+                onclick="window.modalFunctions.hideModal('add-enrollment-modal')">{% translate "Cancel" %}
+        </button>
+        <button type="button" class="button-primary" id="add-enrollment-btn">{% translate "Add Enrollment" %}</button>
+    {% endfill %}
+{% endcomponent %}

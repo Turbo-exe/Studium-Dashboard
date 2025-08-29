@@ -1,16 +1,13 @@
 import django_tables2 as tables
-from django.http import JsonResponse
-from django.shortcuts import get_object_or_404
 from django_components import Component, register
 
-from dashboard.models import Enrollment
 from dashboard.services.enrollments import EnrollmentsService
 from .filters import EnrollmentsFilter
-from .forms import EnrollmentsForm
+from .forms import EditEnrollmentForm, AddEnrollmentForm
 from .table import EnrollmentsTable
 
 
-@register("courses")
+@register("enrollments")
 class EnrollmentsComponent(Component):
     template_file = "enrollments/enrollments.html"
     css_file = "enrollments/enrollments.css"
@@ -22,8 +19,8 @@ class EnrollmentsComponent(Component):
             context = {}
 
         # Get enrollments data
-        courses_service = EnrollmentsService()
-        enrollments = courses_service.get_students_enrollments()
+        enrollments_service = EnrollmentsService()
+        enrollments = enrollments_service.get_students_enrollments()
 
         # Create request object with enrollments data for the FilteredTableView
         request = kwargs.get('request', self.request)
@@ -35,51 +32,19 @@ class EnrollmentsComponent(Component):
         table_instance = EnrollmentsTable(filter_instance.qs)
         tables.RequestConfig(request=request, paginate={"per_page": 10}).configure(table_instance)
 
-        # Create form for edit modal
-        form = EnrollmentsForm()
+        # Get available courses for add modal
+        from dashboard.models import Course
+        available_courses = Course.objects.all()
+
+        # Create forms
+        add_form = AddEnrollmentForm()
+        edit_form = EditEnrollmentForm()
 
         # Add to context
         context['filter'] = filter_instance
         context['table'] = table_instance
-        context['form'] = form
+        context['available_courses'] = available_courses
+        context['add_form'] = add_form
+        context['edit_form'] = edit_form
 
         return context
-
-    def edit_course(self, request, course_id) -> JsonResponse:
-        """Handle edit course action."""
-        try:
-            enrollment = get_object_or_404(Enrollment, id=course_id)
-
-            if request.method == 'POST':
-                form = EnrollmentsForm(request.POST, instance=enrollment)
-                if form.is_valid():
-                    form.save()
-                    return JsonResponse({
-                        "status": "success",
-                        "message": "Enrollment updated successfully"
-                    })
-                else:
-                    # Return form errors
-                    return JsonResponse({
-                        "status": "error",
-                        "errors": form.errors.as_json()
-                    }, status=400)
-            else:
-                # Return enrollment data for the form
-                data = {
-                    "id": enrollment.id,
-                    "student": enrollment.student.identifier,
-                    "course": enrollment.course.identifier,
-                    "exam": enrollment.course.exam.identifier,
-                    "score": enrollment.score,
-                    "status": enrollment.status
-                }
-                return JsonResponse({
-                    "status": "success",
-                    "enrollment": data
-                })
-        except Exception as e:
-            return JsonResponse({
-                "status": "error",
-                "message": str(e)
-            }, status=500)

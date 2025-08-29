@@ -1,0 +1,23 @@
+{% load static %}
+{% load i18n %}
+
+{% component "modal" modal_id="delete-enrollment-modal" modal_class="" modal_title=_("Delete Enrollment") modal_size="medium" %}
+    {% fill "body" %}
+        <!-- Note: This is not a django form. It is a simple form with a hidden input handled by javascript-->
+        <form id="delete-enrollment-form" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="enrollment_id" id="delete-enrollment-id">
+
+            <p>{% translate "Are you sure you want to cancel this enrollment?" %}</p>
+            <p><strong>{% translate "This action cannot be undone!" %}</strong> {% translate "The enrollment will be permanently removed from your dashboard." %}</p>
+
+        </form>
+    {% endfill %}
+
+    {% fill "footer" %}
+        <button type="button" class="button-secondary" data-modal-id="delete-enrollment-modal"
+                onclick="window.modalFunctions.hideModal('delete-enrollment-modal')">{% translate "Cancel" %}
+        </button>
+        <button type="button" class="button-primary" id="confirm-enrollment-delete-btn">{% translate "Delete" %}</button>
+    {% endfill %}
+{% endcomponent %}

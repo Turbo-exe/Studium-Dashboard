@@ -37,10 +37,15 @@ class TimingService(BaseService):
 
     def count_future_enrollments(self) -> int:
         """Returns the number of enrollments that the student is supposed to take in their degree."""
-        return models.Enrollment.objects.filter(
+        cnt_available = models.Enrollment.objects.filter(
             student=self._student,
             status=models.Status.AVAILABLE,
         ).count()
+        cnt_failed = models.Enrollment.objects.filter(
+            student=self._student,
+            status=models.Status.FAILED,
+        ).count()
+        return cnt_available + cnt_failed
 
     def count_active_enrollments(self) -> int:
         """Returns the number of enrollments that the student is currently taking in their degree."""

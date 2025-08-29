@@ -3,7 +3,7 @@ from django import forms
 from dashboard.models import Quicklink
 
 
-class QuicklinkForm(forms.ModelForm):
+class AddQuicklinkForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()

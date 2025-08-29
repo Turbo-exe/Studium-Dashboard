@@ -1,25 +1,25 @@
 {% load static %}
 {% load i18n %}
 
-{% component "modal" modal_id="edit-course-modal" modal_class="" modal_title=_("Edit Enrollment") modal_size="large" %}
+{% component "modal" modal_id="edit-enrollment-modal" modal_class="" modal_title=_("Edit Enrollment") modal_size="large" %}
     {% fill "body" %}
-        <form id="edit-course-form" method="post" action="">
+        <form id="edit-enrollment-form" method="post" action="">
             {% csrf_token %}
-            <input type="hidden" name="course_id" id="edit-course-id">
+            <input type="hidden" id="edit-enrollment-id" name="enrollment_id" value="">
 
             <div class="form-field">
-                <label class="form-label" for="id_score">{{ form.score.label }}</label>
-                <span class="form-input">{{ form.score }}</span>
-                {% if form.score.help_text %}
-                    <small class="form-hint">{{ form.score.help_text }}</small>
+                <label class="form-label" for="id_status">{{ edit_form.status.label }}</label>
+                <span class="form-input">{{ edit_form.status }}</span>
+                {% if edit_form.status.help_text %}
+                    <small class="form-hint">{{ edit_form.status.help_text }}</small>
                 {% endif %}
             </div>
 
             <div class="form-field">
-                <label class="form-label" for="id_status">{{ form.status.label }}</label>
-                <span class="form-input">{{ form.status }}</span>
-                {% if form.status.help_text %}
-                    <small class="form-hint">{{ form.status.help_text }}</small>
+                <label class="form-label" for="id_score">{{ edit_form.score.label }}</label>
+                <span class="form-input">{{ edit_form.score }}</span>
+                {% if edit_form.score.help_text %}
+                    <small class="form-hint">{{ edit_form.score.help_text }}</small>
                 {% endif %}
             </div>
 
@@ -33,9 +33,9 @@
     {% endfill %}
 
     {% fill "footer" %}
-        <button type="button" class="button-secondary" data-modal-id="edit-course-modal"
-                onclick="window.modalFunctions.hideModal('edit-course-modal')">{% translate "Cancel" %}
+        <button type="button" class="button-secondary" data-modal-id="edit-enrollment-modal"
+                onclick="window.modalFunctions.hideModal('edit-enrollment-modal')">{% translate "Cancel" %}
         </button>
-        <button type="button" class="button-primary" id="save-course-btn">{% translate "Save changes" %}</button>
+        <button type="button" class="button-primary" id="save-enrollment-btn">{% translate "Save changes" %}</button>
     {% endfill %}
 {% endcomponent %}

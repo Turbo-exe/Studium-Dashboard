@@ -2,11 +2,19 @@
 {% load django_tables2 %}
 {% load i18n %}
 
+{% include "enrollments/_add_modal.html" with form=form available_courses=available_courses %}
 {% include "enrollments/_edit_modal.html" with form=form %}
+{% include "enrollments/_delete_modal.html" %}
 
 {% component "box" box_id="courses" %}
     {% fill "header" %}
         <h3>{% translate "Your courses." %}</h3>
+        <div id="add-enrollment-button-container">
+            <button id="add-enrollment-button" class="button-secondary button-slim">
+                <span class="material-symbols-outlined">add</span>
+                {% translate "Add Enrollment" %}
+            </button>
+        </div>
     {% endfill %}
 
     {% fill "content" %}
@@ -23,7 +31,8 @@
                     {% endfor %}
                 </div>
                 <div id="controls">
-                    <button type="submit" class="button-primary" title="{% translate "Apply filters" %}">{% translate "Filter" %}</button>
+                    <button type="submit" class="button-primary"
+                            title="{% translate "Apply filters" %}">{% translate "Filter" %}</button>
                 </div>
             </form>
 
@@ -38,8 +47,10 @@
     {% fill "footer" %}
         <div class="footer-content">
             <div class="table-info">
-                <small>{% blocktranslate with start=table.page.start_index end=table.page.end_index total=table.page.paginator.count %}Showing {{ start }} to {{ end }}
-                    of {{ total }} courses{% endblocktranslate %}</small>
+                <small>
+                    {% blocktranslate with start=table.page.start_index end=table.page.end_index total=table.page.paginator.count %}
+                        Showing {{ start }} to {{ end }}
+                        of {{ total }} courses{% endblocktranslate %}</small>
             </div>
         </div>
     {% endfill %}

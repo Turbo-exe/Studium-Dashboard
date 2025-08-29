@@ -28,6 +28,13 @@
     }
 }
 
+#add-enrollment-button-container {
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    height          : 28px;
+}
+
 /* Modal */
 #edit-course-form {
     display        : flex;
@@ -107,6 +114,13 @@
     color            : white;
     border-color     : #4a90e2;
     background-color : #4a90e2;
+}
+
+/* Header content */
+.box-header {
+    display         : flex;
+    align-items     : center;
+    justify-content : space-between;
 }
 
 /* Footer content */

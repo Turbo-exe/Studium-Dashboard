@@ -3,9 +3,15 @@
 
 <div class="action-buttons">
     <button type="button" 
-            class="edit-course-button button-secondary"
-            data-course-id="{{ record.id }}"
+            class="edit-enrollment-button button-secondary"
+            data-enrollment-id="{{ record.id }}"
             title="{% translate "Edit enrollment" %}">
         <span class="material-symbols-outlined">edit</span>
+    </button>
+    <button type="button"
+            class="delete-enrollment-button button-secondary"
+            data-enrollment-id="{{ record.id }}"
+            title="{% translate "Delete enrollment" %}">
+        <span class="material-symbols-outlined">delete</span>
     </button>
 </div>

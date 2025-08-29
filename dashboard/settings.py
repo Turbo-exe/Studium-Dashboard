@@ -19,7 +19,7 @@ BASE_DIR = str(Path(__file__).resolve().parent.parent)
 
 SECRET_KEY = 'django-insecure-i%3=#g6+mo+^iti8#imrt6x&1^(sadzc4aw+2ymsulkdqvaud)' # ToDo: Change to secure setting; Not applicable for prototype
 
-DEBUG = False
+DEBUG = True
 CSRF_COOKIE_SECURE=False    # ToDo: Change to secure setting; Not applicable for prototype
 SECURE_SSL_REDIRECT=False   # ToDo: Change to secure setting; Not applicable for prototype
 

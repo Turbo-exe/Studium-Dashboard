@@ -1,10 +1,3 @@
-"""
-Course filter implementation for the academic dashboard.
-
-This module defines the CourseFilter class for filtering course information
-using django-filters.
-"""
-
 import django_filters
 from django.utils.translation import gettext_lazy as _
 
