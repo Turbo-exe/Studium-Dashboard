@@ -3,7 +3,6 @@ from enum import Enum
 from django_components import Component, register
 
 
-
 class ModalSize(Enum):
     LARGE = "large"
     MEDIUM = "medium"

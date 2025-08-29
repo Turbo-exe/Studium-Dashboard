@@ -9,7 +9,9 @@
             <input type="hidden" name="enrollment_id" id="delete-enrollment-id">
 
             <p>{% translate "Are you sure you want to cancel this enrollment?" %}</p>
-            <p><strong>{% translate "This action cannot be undone!" %}</strong> {% translate "The enrollment will be permanently removed from your dashboard." %}</p>
+            <p>
+                <strong>{% translate "This action cannot be undone!" %}</strong> {% translate "The enrollment will be permanently removed from your dashboard." %}
+            </p>
 
         </form>
     {% endfill %}
@@ -18,6 +20,7 @@
         <button type="button" class="button-secondary" data-modal-id="delete-enrollment-modal"
                 onclick="window.modalFunctions.hideModal('delete-enrollment-modal')">{% translate "Cancel" %}
         </button>
-        <button type="button" class="button-primary" id="confirm-enrollment-delete-btn">{% translate "Delete" %}</button>
+        <button type="button" class="button-primary"
+                id="confirm-enrollment-delete-btn">{% translate "Delete" %}</button>
     {% endfill %}
 {% endcomponent %}

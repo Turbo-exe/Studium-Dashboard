@@ -1,11 +1,8 @@
 from dataclasses import dataclass
 
-from django.http import JsonResponse
-from django.shortcuts import get_object_or_404
 from django_components import Component, register
 
 from dashboard import services
-from dashboard.models import Quicklink
 from .forms import AddQuicklinkForm
 
 

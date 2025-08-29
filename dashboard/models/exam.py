@@ -7,7 +7,6 @@ from .course import Course
 
 
 class Exam(AcademicEntity):
-    """Represents an exam for a specific course."""
     course = models.OneToOneField(
         to=Course,
         related_name='exam',

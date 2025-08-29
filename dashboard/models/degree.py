@@ -6,7 +6,6 @@ from .choices import DegreeType
 
 
 class Degree(AcademicEntity):
-    """Represents an academic degree program offered by the institution."""
     degree_type = models.CharField(
         max_length=3, 
         choices=DegreeType.choices,

@@ -1,11 +1,10 @@
 import locale
 from datetime import datetime
 
-import pytz
 from django.utils.translation import get_language
 from django_components import Component, register
 
-from dashboard import services, settings
+from dashboard import services
 
 
 @register("greeting")

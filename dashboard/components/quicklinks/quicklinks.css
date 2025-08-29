@@ -28,14 +28,14 @@
     }
 
     .delete-quicklink-btn {
+        font-size  : var(--font-size-md);
         position   : absolute;
+        z-index    : 10;
         top        : var(--space-2);
         right      : var(--space-2);
         padding    : var(--space-1);
-        font-size  : var(--font-size-md);
-        z-index    : 10;
-        opacity    : 0;
         transition : opacity 0.2s ease;
+        opacity    : 0;
     }
 
     .quicklink-container:hover .delete-quicklink-btn {
@@ -114,7 +114,7 @@
 }
 
 #delete-quicklink-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
 }

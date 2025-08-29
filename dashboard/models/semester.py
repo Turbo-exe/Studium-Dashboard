@@ -18,7 +18,6 @@ def validate_year(value):
 
 
 class Semester(AcademicEntity):
-    """Represents an academic semester within a degree program."""
     degree = models.ForeignKey(
         to=Degree, 
         related_name='semesters', 

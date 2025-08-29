@@ -9,7 +9,6 @@ from .course import Course
 
 
 class Student(AcademicEntity):
-    """Represents a student enrolled in a degree program."""
     first_name = models.TextField(
         verbose_name=_('first name'),
         max_length=100

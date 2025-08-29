@@ -9,14 +9,12 @@ from ..models.enrollment import Enrollment
 class EnrollmentsService(BaseService):
 
     def get_students_enrollments(self) -> QuerySet:
-        """Get all enrollments of a student."""
         enrollments = Enrollment.objects.filter(
             student=self._student
         ).select_related('course')
         return enrollments
 
     def add_enrollment(self, course: Course) -> Enrollment:
-        """Add an enrollment to a student."""
         enrollment = Enrollment(
             student=self._student,
             course=course,
@@ -26,7 +24,6 @@ class EnrollmentsService(BaseService):
         return enrollment
 
     def get_enrollment_by_id(self, enrollment_id: int) -> Enrollment:
-        """Get a specific enrollment by ID for the authenticated student."""
         return get_object_or_404(Enrollment, id=enrollment_id, student=self._student)
 
     def update_enrollment(self, enrollment_id: int, status: Status, score: int or None) -> None:

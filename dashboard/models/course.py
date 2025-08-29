@@ -7,7 +7,6 @@ from .semester import Semester
 
 
 class Course(AcademicEntity):
-    """Represents an academic course within a specific semester."""
     code = models.TextField(
         unique=True,
         help_text=_("The courses code (e.g., DLBBIM01)")

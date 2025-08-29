@@ -6,7 +6,6 @@ from .material_icons import MATERIAL_ICONS
 
 
 class Quicklink(models.Model):
-    """Represents an academic semester within a degree program."""
     student = models.ForeignKey(
         to=Student,
         related_name='quicklinks',
