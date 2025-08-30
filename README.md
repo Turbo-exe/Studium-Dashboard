@@ -26,11 +26,12 @@ This project is structured in three main parts:
 
 Below you can find architectural UML-class diagrams for these classes:
 
-| Purpose    | Image                             |
-|------------|-----------------------------------|
-| Models     | ![documentation/models.png](./documentation/models.png)     |
-| Services   | ![documentation/services.png](./documentation/services.png)   |
-| Components | ![documentation/components.png](./documentation/components.png) |
+| Purpose                       | Image                                                                                             |
+|-------------------------------|---------------------------------------------------------------------------------------------------|
+| Models                        | ![documentation/models.png](./documentation/models.png)                                           |
+| Services (student-specific)   | ![documentation/services-student-specific.png](./documentation/services-student-specific.png)     |
+| Services (student-unspecific) | ![documentation/services-student-unspecific.png](./documentation/services-student-unspecific.png) |
+| Components                    | ![documentation/components.png](./documentation/components.png)                                   |
 
 
 ## Installation
