@@ -1,9 +1,9 @@
 from django.db.models import QuerySet
 from django.shortcuts import get_object_or_404
 
-from ._base import BaseService
-from ..models import Status, Course
-from ..models.enrollment import Enrollment
+from dashboard.services.student_specific._base import BaseService
+from dashboard.models import Status, Course
+from dashboard.models.enrollment import Enrollment
 
 
 class EnrollmentsService(BaseService):

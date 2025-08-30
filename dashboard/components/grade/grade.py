@@ -1,6 +1,6 @@
 from django_components import Component, register
 
-from dashboard.services.grade import GradeService
+from dashboard.services.student_specific.grade import GradeService
 
 
 @register("grade")

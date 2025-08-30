@@ -8,8 +8,8 @@ from django.shortcuts import render
 from django.views.decorators.http import require_POST
 
 from dashboard.components.enrollments.forms import AddEnrollmentForm, EditEnrollmentForm
-from dashboard.services.enrollments import EnrollmentsService
-from dashboard.services.quicklinks import QuicklinksService
+from dashboard.services.student_specific.enrollments import EnrollmentsService
+from dashboard.services.student_specific.quicklinks import QuicklinksService
 
 
 def index(request):

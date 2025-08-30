@@ -13,13 +13,14 @@ import logging
 import os.path
 from pathlib import Path
 
+from django.core.management.utils import get_random_secret_key
 from django_components import ComponentsSettings
 
 BASE_DIR = str(Path(__file__).resolve().parent.parent)
 
-SECRET_KEY = 'django-insecure-i%3=#g6+mo+^iti8#imrt6x&1^(sadzc4aw+2ymsulkdqvaud)' # ToDo: Change to secure setting; Not applicable for prototype
+SECRET_KEY = get_random_secret_key()    # ToDo: Use environment variable instead; Not applicable for prototype
 
-DEBUG = True
+DEBUG = True                # ToDo: Change to False; Not applicable for prototype
 CSRF_COOKIE_SECURE=False    # ToDo: Change to secure setting; Not applicable for prototype
 SECURE_SSL_REDIRECT=False   # ToDo: Change to secure setting; Not applicable for prototype
 
@@ -92,7 +93,8 @@ WSGI_APPLICATION = 'dashboard.wsgi.application'
 # Database
 sqlite_path = os.environ.get("SQLITE_PATH")
 if not sqlite_path:
-    logging.critical("No SQLite path provided. Please set the SQLITE_PATH environment variable. Exiting...")
+    logging.critical("No SQLite path provided. Please set the SQLITE_PATH environment variable. "
+                     "Refer to the README ('Installation -> From source') for instructions. Exiting...")
     exit(1)
 DATABASES = {
     'default': {

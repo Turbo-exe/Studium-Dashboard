@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
 from dashboard.models import Enrollment
-from dashboard.services.auth import AuthService
+from dashboard.services.student_specific.auth import AuthService
 
 
 class AddEnrollmentForm(forms.ModelForm):

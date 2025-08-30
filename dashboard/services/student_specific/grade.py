@@ -1,5 +1,5 @@
 from dashboard import models
-from dashboard.services._base import BaseService
+from dashboard.services.student_specific._base import BaseService
 
 
 class GradeService(BaseService):

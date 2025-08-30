@@ -1,7 +1,7 @@
 import django_tables2 as tables
 from django_components import Component, register
 
-from dashboard.services.enrollments import EnrollmentsService
+from dashboard.services.student_specific.enrollments import EnrollmentsService
 from .filters import EnrollmentsFilter
 from .forms import EditEnrollmentForm, AddEnrollmentForm
 from .table import EnrollmentsTable

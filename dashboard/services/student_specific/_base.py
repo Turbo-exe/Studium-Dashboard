@@ -1,4 +1,4 @@
-from dashboard.services.auth import AuthService
+from dashboard.services.student_specific.auth import AuthService
 
 
 class BaseService:

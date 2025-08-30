@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from dashboard.services._base import BaseService
+from dashboard.services.student_specific._base import BaseService
 from dashboard.models.quicklink import Quicklink
 
 
