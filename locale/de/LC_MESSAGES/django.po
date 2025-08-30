@@ -135,7 +135,7 @@ msgstr "Punktzahl"
 #: .\dashboard\components\enrollments\forms.py:27
 #| msgid "The course the student is enrolled in"
 msgid "Select the course to enroll in"
-msgstr "Der Kurs, in den der Student eingeschrieben ist"
+msgstr "Der Kurs in den du dich einschreiben möchtest"
 
 #: .\dashboard\components\enrollments\forms.py:33
 msgid "Please select the course to enroll in."
@@ -144,7 +144,7 @@ msgstr "Bitte wähle den Kurs aus in den du dich einschreiben möchtest."
 #: .\dashboard\components\enrollments\forms.py:35
 #| msgid "The student enrolled in the course"
 msgid "You are already enrolled in this course."
-msgstr "Der in den Kurs eingeschriebene Student"
+msgstr "Du bist bereits in diesen Kurs eingeschrieben."
 
 #: .\dashboard\components\enrollments\forms.py:50
 #| msgid "The current status of this enrollment"
@@ -154,7 +154,7 @@ msgstr "Der aktuelle Status dieser Einschreibung"
 #: .\dashboard\components\enrollments\forms.py:51
 #| msgid "The current status of this enrollment"
 msgid "Score for this enrollment (0-100)"
-msgstr "Der aktuelle Status dieser Einschreibung"
+msgstr "Die erreichte Punktzahl dieser Einschreibung (0-100)"
 
 #: .\dashboard\components\enrollments\table.py:54
 msgid "Actions"

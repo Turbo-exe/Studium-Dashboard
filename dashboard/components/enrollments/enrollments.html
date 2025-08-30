@@ -48,8 +48,7 @@
         <div class="footer-content">
             <div class="table-info">
                 <small>
-                    {% blocktranslate with start=table.page.start_index end=table.page.end_index total=table.page.paginator.count %}
-                        Showing {{ start }} to {{ end }} of {{ total }} courses{% endblocktranslate %}</small>
+                    {% blocktranslate with start=table.page.start_index end=table.page.end_index total=table.page.paginator.count %}Showing {{ start }} to {{ end }} of {{ total }} courses{% endblocktranslate %}</small>
             </div>
         </div>
     {% endfill %}
