@@ -28,9 +28,9 @@ Below you can find architectural UML-class diagrams for these classes:
 
 | Purpose    | Image                             |
 |------------|-----------------------------------|
-| Models     | ![](documentation/models.png)     |
-| Services   | ![](documentation/services.png)   |
-| Components | ![](documentation/components.png) |
+| Models     | ![documentation/models.png](./documentation/models.png)     |
+| Services   | ![documentation/services.png](./documentation/services.png)   |
+| Components | ![documentation/components.png](./documentation/components.png) |
 
 
 ## Installation
