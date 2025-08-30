@@ -8,6 +8,7 @@ from django.shortcuts import render
 from django.views.decorators.http import require_POST
 
 from dashboard.components.enrollments.forms import AddEnrollmentForm, EditEnrollmentForm
+from dashboard.components.quicklinks.forms import AddQuicklinkForm
 from dashboard.services.student_specific.enrollments import EnrollmentsService
 from dashboard.services.student_specific.quicklinks import QuicklinksService
 
@@ -67,11 +68,9 @@ def edit_enrollment(request, enrollment_id):
         form = EditEnrollmentForm(request.POST)
 
         if not form.is_valid():
-            # If the form is invalid return a 400 response
-            return JsonResponse(
-                status=400,
-                data={"errors": json.dumps(form.errors.get_json_data())}
-            )
+            if not form.is_valid():
+                # If the form is invalid return a 400 response
+                return JsonResponse(status=400, data={"errors": form.errors})
         # Get the cleaned data
         status = form.cleaned_data.get("status")
         score = form.cleaned_data.get("score")
@@ -123,13 +122,18 @@ def add_quicklink(request):
     """Handle the add quicklink form submission."""
     try:
         quicklinks_service = QuicklinksService()
-        text = request.POST.get('text')
-        url = request.POST.get('url')
-        materialIconRef = request.POST.get('materialIconRef')
+        form = AddQuicklinkForm(request.POST)
+        # Get the form data
+        if not form.is_valid():
+            # If the form is invalid return a 400 response
+            return JsonResponse(status=400, data={"errors": form.errors})
 
-        if not text or not url or not materialIconRef:
-            return JsonResponse(status=400, data={"errors": {"form": ["All fields are required."]}})
+        # Get the cleaned data
+        text = form.cleaned_data.get("text")
+        url = form.cleaned_data.get("url")
+        materialIconRef = form.cleaned_data.get("materialIconRef")
 
+        # Create the instance
         new_quicklink = quicklinks_service.add_quicklink(
             text=text,
             url=url,

@@ -38,7 +38,11 @@ function setupAddQuicklinkForm() {
                 if (data.errors) {
                     for (const field in data.errors) {
                         const li = document.createElement('li');
-                        li.textContent = `${field}: ${data.errors[field].join(' ')}`;
+                        if (field === "__all__") {
+                            li.textContent = data.errors[field].join(' ');
+                        } else {
+                            li.textContent = `${field}: ${data.errors[field].join(' ')}`;
+                        }
                         errorsList.appendChild(li);
                     }
                     document.querySelector('#add-quicklink-form .form-errors').style.display = 'block';

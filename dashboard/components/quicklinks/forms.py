@@ -1,13 +1,16 @@
 from django import forms
+from django.core.validators import URLValidator
 
 from dashboard.models import Quicklink
 
 
 class AddQuicklinkForm(forms.ModelForm):
 
-    def clean(self):
-        cleaned_data = super().clean()
-        return cleaned_data
+    def clean_url(self):
+        url = self.cleaned_data.get('url')
+        validate = URLValidator(schemes=["http", "https"])
+        validate(url)
+        return url
 
     class Meta:
         model = Quicklink
